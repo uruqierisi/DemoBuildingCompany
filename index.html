@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="sq">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Runs before first paint: scroll-reveal styles apply only under html.js, so without JS everything is visible. -->
+    <script>
+      document.documentElement.classList.add('js');
+    </script>
+    <!-- resizes-content: on Android the layout shrinks above the on-screen keyboard (iOS ignores it), so the
+         contact dialog and dvh-sized views stay fully reachable while typing. -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content"
+    />
+    <meta name="theme-color" content="#F5F2ED" />
+    <meta name="color-scheme" content="light" />
+    <title>Garden Buildings — Pozhegu Brothers</title>
+    <meta
+      name="description"
+      content="Garden Buildings nga Pozhegu Brothers në Prishtinë. Zgjidhni objektin dhe shikoni banesat në shitje sipas katit, sipërfaqes dhe numrit të dhomave."
+    />
+    <!-- %SITE_URL% is replaced at build time (build/site-url-plugin.ts); share previews need absolute URLs. -->
+    <link rel="canonical" href="%SITE_URL%/" />
+
+    <!-- The page renders from JS, so text (and with it the font request) appears late; preloading the
+         Latin face lets it arrive with the bundle instead of swapping in after first paint. -->
+    <link
+      rel="preload"
+      href="/node_modules/@fontsource-variable/dm-sans/files/dm-sans-latin-opsz-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Share previews (WhatsApp, Facebook, LinkedIn, X). Image: 1200 × 630, under 300 KB for WhatsApp. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="sq_AL" />
+    <meta property="og:site_name" content="Pozhegu Brothers" />
+    <meta property="og:url" content="%SITE_URL%/" />
+    <meta property="og:title" content="Garden Buildings — Pozhegu Brothers" />
+    <meta
+      property="og:description"
+      content="Kompleksi banesor i Pozhegu Brothers në Prishtinë. Zgjidhni objektin dhe shikoni banesat në shitje, kat pas kati."
+    />
+    <meta property="og:image" content="%SITE_URL%/og/garden-buildings.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Garden Buildings nga Pozhegu Brothers" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Garden Buildings — Pozhegu Brothers" />
+    <meta
+      name="twitter:description"
+      content="Kompleksi banesor i Pozhegu Brothers në Prishtinë. Zgjidhni objektin dhe shikoni banesat në shitje, kat pas kati."
+    />
+    <meta name="twitter:image" content="%SITE_URL%/og/garden-buildings.jpg" />
+    <meta name="twitter:image:alt" content="Garden Buildings nga Pozhegu Brothers" />
+  </head>
+  <body>
+    <noscript>
+      <p style="margin: 0; padding: 24px; font-family: system-ui, sans-serif; background: #161513; color: #fff">
+        Garden Buildings — Pozhegu Brothers. Për të parë objektet dhe banesat, aktivizoni JavaScript në shfletues.
+      </p>
+    </noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,399 @@
+{
+  "project": "garden-buildings",
+  "polygons": [
+    {
+      "kind": "building",
+      "id": "objekti-l4",
+      "image": "garden-buildings:overview",
+      "imageSize": {
+        "width": 3840,
+        "height": 2160
+      },
+      "svgPath": "M294 697L437 612L571 556L739 572L851 613L936 1093L769 1223L364 1052Z"
+    },
+    {
+      "kind": "building",
+      "id": "objekti-l7",
+      "image": "garden-buildings:overview",
+      "imageSize": {
+        "width": 3840,
+        "height": 2160
+      },
+      "svgPath": "M995 401L1309 266L1590 365L1623 922L1536 738L1148 738L1066 816L995 795Z"
+    },
+    {
+      "kind": "building",
+      "id": "objekti-l8",
+      "image": "garden-buildings:overview",
+      "imageSize": {
+        "width": 3840,
+        "height": 2160
+      },
+      "svgPath": "M1071 822L1152 746L1530 746L1625 944L1790 1149L1756 1587L1579 1621L1126 1400Z"
+    },
+    {
+      "kind": "building",
+      "id": "objekti-l9",
+      "image": "garden-buildings:overview",
+      "imageSize": {
+        "width": 3840,
+        "height": 2160
+      },
+      "svgPath": "M1886 884L2089 762L2441 923L2446 988L2508 1018L2514 1555L2091 1456L1861 1305Z"
+    },
+    {
+      "kind": "apartment",
+      "id": "l9-p01",
+      "image": "garden-buildings:objekti-l9",
+      "imageSize": {
+        "width": 2568,
+        "height": 2160
+      },
+      "svgPath": "M63 1553L397 1553L397 1665L63 1665Z"
+    },
+    {
+      "kind": "sold",
+      "id": "l9-s-0001",
+      "image": "garden-buildings:objekti-l9",
+      "imageSize": {
+        "width": 2568,
+        "height": 2160
+      },
+      "svgPath": "M403 1553L767 1553L767 1665L403 1665Z",
+      "buildingId": "objekti-l9",
+      "floor": 0
+    },
+    {
+      "kind": "sold",
+      "id": "l9-s-0002",
+      "image": "garden-buildings:objekti-l9",
+      "imageSize": {
+        "width": 2568,
+        "height": 2160
+      },
+      "svgPath": "M775 1587L1562 1587L1562 1687L775 1687Z",
+      "buildingId": "objekti-l9",
+      "floor": 0
+    },
+    {
+      "kind": "sold",
+      "id": "l9-s-0101",
+      "image": "garden-buildings:objekti-l9",
+      "imageSize": {
+        "width": 2568,
+        "height": 2160
+      },
+      "svgPath": "M63 1435L397 1435L397 1547L63 1547Z",
+      "buildingId": "objekti-l9",
+      "floor": 1
+    },
+    {
+      "kind": "sold",
+      "id": "l9-s-0102",
+      "image": "garden-buildings:objekti-l9",
+      "imageSize": {
+        "width": 2568,
+        "height": 2160
+      },
+      "svgPath": "M403 1435L767 1435L767 1547L403 1547Z",
+      "buildingId": "objekti-l9",
+      "floor": 1
+    },
+    {
+      "kind": "sold",
+      "id": "l9-s-0103",
+      "image": "garden-buildings:objekti-l9",
+      "imageSize": {
+        "width": 2568,
+        "height": 2160
+      },
+      "svgPath": "M775 1483L1562 1483L1562 1581L775 1581Z",
+      "buildingId": "objekti-l9",
+      "floor": 1
+    },
+    {
+      "kind": "sold",
+      "id": "l9-s-0201",
+      "image": "garden-buildings:objekti-l9",
+      "imageSize": {
+        "width": 2568,
+        "height": 2160
+      },
+      "svgPath": "M63 1317L397 1317L397 1429L63 1429Z",
+      "buildingId": "objekti-l9",
+      "floor": 2
+    },
+    {
+      "kind": "sold",
+      "id": "l9-s-0202",
+      "image": "garden-buildings:objekti-l9",
+      "imageSize": {
+        "width": 2568,
+        "height": 2160
+      },
+      "svgPath": "M403 1317L767 1317L767 1429L403 1429Z",
+      "buildingId": "objekti-l9",
+      "floor": 2
+    },
+    {
+      "kind": "sold",
+      "id": "l9-s-0203",
+      "image": "garden-buildings:objekti-l9",
+      "imageSize": {
+        "width": 2568,
+        "height": 2160
+      },
+      "svgPath": "M775 1379L1562 1379L1562 1477L775 1477Z",
+      "buildingId": "objekti-l9",
+      "floor": 2
+    },
+    {
+      "kind": "apartment",
+      "id": "l9-301",
+      "image": "garden-buildings:objekti-l9",
+      "imageSize": {
+        "width": 2568,
+        "height": 2160
+      },
+      "svgPath": "M63 1203L397 1203L397 1311L63 1311Z"
+    },
+    {
+      "kind": "sold",
+      "id": "l9-s-0301",
+      "image": "garden-buildings:objekti-l9",
+      "imageSize": {
+        "width": 2568,
+        "height": 2160
+      },
+      "svgPath": "M403 1203L767 1203L767 1311L403 1311Z",
+      "buildingId": "objekti-l9",
+      "floor": 3
+    },
+    {
+      "kind": "sold",
+      "id": "l9-s-0302",
+      "image": "garden-buildings:objekti-l9",
+      "imageSize": {
+        "width": 2568,
+        "height": 2160
+      },
+      "svgPath": "M775 1275L1562 1275L1562 1373L775 1373Z",
+      "buildingId": "objekti-l9",
+      "floor": 3
+    },
+    {
+      "kind": "sold",
+      "id": "l9-s-0401",
+      "image": "garden-buildings:objekti-l9",
+      "imageSize": {
+        "width": 2568,
+        "height": 2160
+      },
+      "svgPath": "M63 1081L397 1081L397 1197L63 1197Z",
+      "buildingId": "objekti-l9",
+      "floor": 4
+    },
+    {
+      "kind": "sold",
+      "id": "l9-s-0402",
+      "image": "garden-buildings:objekti-l9",
+      "imageSize": {
+        "width": 2568,
+        "height": 2160
+      },
+      "svgPath": "M403 1081L767 1081L767 1197L403 1197Z",
+      "buildingId": "objekti-l9",
+      "floor": 4
+    },
+    {
+      "kind": "sold",
+      "id": "l9-s-0403",
+      "image": "garden-buildings:objekti-l9",
+      "imageSize": {
+        "width": 2568,
+        "height": 2160
+      },
+      "svgPath": "M775 1171L1562 1171L1562 1269L775 1269Z",
+      "buildingId": "objekti-l9",
+      "floor": 4
+    },
+    {
+      "kind": "sold",
+      "id": "l9-s-0501",
+      "image": "garden-buildings:objekti-l9",
+      "imageSize": {
+        "width": 2568,
+        "height": 2160
+      },
+      "svgPath": "M63 963L397 963L397 1075L63 1075Z",
+      "buildingId": "objekti-l9",
+      "floor": 5
+    },
+    {
+      "kind": "sold",
+      "id": "l9-s-0502",
+      "image": "garden-buildings:objekti-l9",
+      "imageSize": {
+        "width": 2568,
+        "height": 2160
+      },
+      "svgPath": "M403 963L767 963L767 1075L403 1075Z",
+      "buildingId": "objekti-l9",
+      "floor": 5
+    },
+    {
+      "kind": "sold",
+      "id": "l9-s-0503",
+      "image": "garden-buildings:objekti-l9",
+      "imageSize": {
+        "width": 2568,
+        "height": 2160
+      },
+      "svgPath": "M775 1067L1562 1067L1562 1165L775 1165Z",
+      "buildingId": "objekti-l9",
+      "floor": 5
+    },
+    {
+      "kind": "sold",
+      "id": "l9-s-0601",
+      "image": "garden-buildings:objekti-l9",
+      "imageSize": {
+        "width": 2568,
+        "height": 2160
+      },
+      "svgPath": "M63 845L397 845L397 957L63 957Z",
+      "buildingId": "objekti-l9",
+      "floor": 6
+    },
+    {
+      "kind": "sold",
+      "id": "l9-s-0602",
+      "image": "garden-buildings:objekti-l9",
+      "imageSize": {
+        "width": 2568,
+        "height": 2160
+      },
+      "svgPath": "M403 845L767 845L767 957L403 957Z",
+      "buildingId": "objekti-l9",
+      "floor": 6
+    },
+    {
+      "kind": "sold",
+      "id": "l9-s-0603",
+      "image": "garden-buildings:objekti-l9",
+      "imageSize": {
+        "width": 2568,
+        "height": 2160
+      },
+      "svgPath": "M775 963L1562 963L1562 1061L775 1061Z",
+      "buildingId": "objekti-l9",
+      "floor": 6
+    },
+    {
+      "kind": "sold",
+      "id": "l9-s-0701",
+      "image": "garden-buildings:objekti-l9",
+      "imageSize": {
+        "width": 2568,
+        "height": 2160
+      },
+      "svgPath": "M63 727L397 727L397 839L63 839Z",
+      "buildingId": "objekti-l9",
+      "floor": 7
+    },
+    {
+      "kind": "sold",
+      "id": "l9-s-0702",
+      "image": "garden-buildings:objekti-l9",
+      "imageSize": {
+        "width": 2568,
+        "height": 2160
+      },
+      "svgPath": "M403 727L767 727L767 839L403 839Z",
+      "buildingId": "objekti-l9",
+      "floor": 7
+    },
+    {
+      "kind": "sold",
+      "id": "l9-s-0703",
+      "image": "garden-buildings:objekti-l9",
+      "imageSize": {
+        "width": 2568,
+        "height": 2160
+      },
+      "svgPath": "M775 859L1562 859L1562 957L775 957Z",
+      "buildingId": "objekti-l9",
+      "floor": 7
+    },
+    {
+      "kind": "sold",
+      "id": "l9-s-0801",
+      "image": "garden-buildings:objekti-l9",
+      "imageSize": {
+        "width": 2568,
+        "height": 2160
+      },
+      "svgPath": "M63 609L397 609L397 721L63 721Z",
+      "buildingId": "objekti-l9",
+      "floor": 8
+    },
+    {
+      "kind": "sold",
+      "id": "l9-s-0802",
+      "image": "garden-buildings:objekti-l9",
+      "imageSize": {
+        "width": 2568,
+        "height": 2160
+      },
+      "svgPath": "M403 609L767 609L767 721L403 721Z",
+      "buildingId": "objekti-l9",
+      "floor": 8
+    },
+    {
+      "kind": "sold",
+      "id": "l9-s-0803",
+      "image": "garden-buildings:objekti-l9",
+      "imageSize": {
+        "width": 2568,
+        "height": 2160
+      },
+      "svgPath": "M775 755L1215 755L1215 698L1562 698L1562 853L775 853Z",
+      "buildingId": "objekti-l9",
+      "floor": 8
+    },
+    {
+      "kind": "sold",
+      "id": "l9-s-0901",
+      "image": "garden-buildings:objekti-l9",
+      "imageSize": {
+        "width": 2568,
+        "height": 2160
+      },
+      "svgPath": "M136 423L397 423L397 603L63 603L63 543L136 543Z",
+      "buildingId": "objekti-l9",
+      "floor": 9
+    },
+    {
+      "kind": "sold",
+      "id": "l9-s-0902",
+      "image": "garden-buildings:objekti-l9",
+      "imageSize": {
+        "width": 2568,
+        "height": 2160
+      },
+      "svgPath": "M403 423L697 423L697 543L767 543L767 603L403 603Z",
+      "buildingId": "objekti-l9",
+      "floor": 9
+    },
+    {
+      "kind": "apartment",
+      "id": "l9-901",
+      "image": "garden-buildings:objekti-l9",
+      "imageSize": {
+        "width": 2568,
+        "height": 2160
+      },
+      "svgPath": "M775 598L1209 598L1209 749L775 749Z"
+    }
+  ]
+}

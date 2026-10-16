@@ -1,0 +1,15 @@
+node_modules
+dist
+*.local
+# Environment files may hold a personal WhatsApp number; only the example is committed.
+.env
+.env.*
+!.env.example
+.DS_Store
+*.tsbuildinfo
+
+# Untouched source images (~95 MB). Re-download with: node scripts/optimize-renders.mjs --fetch
+public/renders/**/original/
+
+# Local review artefacts (polygon overlays)
+review/

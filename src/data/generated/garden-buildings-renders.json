@@ -1,0 +1,478 @@
+{
+  "hero": {
+    "original": "F11.jpg",
+    "width": 3840,
+    "height": 2160,
+    "variants": [
+      {
+        "width": 640,
+        "avif": "/renders/garden-buildings/optimized/hero-640.avif",
+        "webp": "/renders/garden-buildings/optimized/hero-640.webp",
+        "jpeg": "/renders/garden-buildings/optimized/hero-640.jpg"
+      },
+      {
+        "width": 1024,
+        "avif": "/renders/garden-buildings/optimized/hero-1024.avif",
+        "webp": "/renders/garden-buildings/optimized/hero-1024.webp",
+        "jpeg": "/renders/garden-buildings/optimized/hero-1024.jpg"
+      },
+      {
+        "width": 1600,
+        "avif": "/renders/garden-buildings/optimized/hero-1600.avif",
+        "webp": "/renders/garden-buildings/optimized/hero-1600.webp",
+        "jpeg": "/renders/garden-buildings/optimized/hero-1600.jpg"
+      },
+      {
+        "width": 2400,
+        "avif": "/renders/garden-buildings/optimized/hero-2400.avif",
+        "webp": "/renders/garden-buildings/optimized/hero-2400.webp",
+        "jpeg": "/renders/garden-buildings/optimized/hero-2400.jpg"
+      },
+      {
+        "width": 3840,
+        "avif": "/renders/garden-buildings/optimized/hero-3840.avif",
+        "webp": "/renders/garden-buildings/optimized/hero-3840.webp",
+        "jpeg": "/renders/garden-buildings/optimized/hero-3840.jpg"
+      }
+    ]
+  },
+  "overview": {
+    "original": "F18.jpg",
+    "width": 3840,
+    "height": 2160,
+    "variants": [
+      {
+        "width": 640,
+        "avif": "/renders/garden-buildings/optimized/overview-640.avif",
+        "webp": "/renders/garden-buildings/optimized/overview-640.webp",
+        "jpeg": "/renders/garden-buildings/optimized/overview-640.jpg"
+      },
+      {
+        "width": 1024,
+        "avif": "/renders/garden-buildings/optimized/overview-1024.avif",
+        "webp": "/renders/garden-buildings/optimized/overview-1024.webp",
+        "jpeg": "/renders/garden-buildings/optimized/overview-1024.jpg"
+      },
+      {
+        "width": 1600,
+        "avif": "/renders/garden-buildings/optimized/overview-1600.avif",
+        "webp": "/renders/garden-buildings/optimized/overview-1600.webp",
+        "jpeg": "/renders/garden-buildings/optimized/overview-1600.jpg"
+      },
+      {
+        "width": 2400,
+        "avif": "/renders/garden-buildings/optimized/overview-2400.avif",
+        "webp": "/renders/garden-buildings/optimized/overview-2400.webp",
+        "jpeg": "/renders/garden-buildings/optimized/overview-2400.jpg"
+      },
+      {
+        "width": 3840,
+        "avif": "/renders/garden-buildings/optimized/overview-3840.avif",
+        "webp": "/renders/garden-buildings/optimized/overview-3840.webp",
+        "jpeg": "/renders/garden-buildings/optimized/overview-3840.jpg"
+      }
+    ]
+  },
+  "gallery-terraces": {
+    "original": "F20.jpg",
+    "width": 3840,
+    "height": 2160,
+    "variants": [
+      {
+        "width": 640,
+        "avif": "/renders/garden-buildings/optimized/gallery-terraces-640.avif",
+        "webp": "/renders/garden-buildings/optimized/gallery-terraces-640.webp",
+        "jpeg": "/renders/garden-buildings/optimized/gallery-terraces-640.jpg"
+      },
+      {
+        "width": 1024,
+        "avif": "/renders/garden-buildings/optimized/gallery-terraces-1024.avif",
+        "webp": "/renders/garden-buildings/optimized/gallery-terraces-1024.webp",
+        "jpeg": "/renders/garden-buildings/optimized/gallery-terraces-1024.jpg"
+      },
+      {
+        "width": 1600,
+        "avif": "/renders/garden-buildings/optimized/gallery-terraces-1600.avif",
+        "webp": "/renders/garden-buildings/optimized/gallery-terraces-1600.webp",
+        "jpeg": "/renders/garden-buildings/optimized/gallery-terraces-1600.jpg"
+      },
+      {
+        "width": 2400,
+        "avif": "/renders/garden-buildings/optimized/gallery-terraces-2400.avif",
+        "webp": "/renders/garden-buildings/optimized/gallery-terraces-2400.webp",
+        "jpeg": "/renders/garden-buildings/optimized/gallery-terraces-2400.jpg"
+      },
+      {
+        "width": 3840,
+        "avif": "/renders/garden-buildings/optimized/gallery-terraces-3840.avif",
+        "webp": "/renders/garden-buildings/optimized/gallery-terraces-3840.webp",
+        "jpeg": "/renders/garden-buildings/optimized/gallery-terraces-3840.jpg"
+      }
+    ]
+  },
+  "gallery-street": {
+    "original": "F19.jpg",
+    "width": 3840,
+    "height": 2160,
+    "variants": [
+      {
+        "width": 640,
+        "avif": "/renders/garden-buildings/optimized/gallery-street-640.avif",
+        "webp": "/renders/garden-buildings/optimized/gallery-street-640.webp",
+        "jpeg": "/renders/garden-buildings/optimized/gallery-street-640.jpg"
+      },
+      {
+        "width": 1024,
+        "avif": "/renders/garden-buildings/optimized/gallery-street-1024.avif",
+        "webp": "/renders/garden-buildings/optimized/gallery-street-1024.webp",
+        "jpeg": "/renders/garden-buildings/optimized/gallery-street-1024.jpg"
+      },
+      {
+        "width": 1600,
+        "avif": "/renders/garden-buildings/optimized/gallery-street-1600.avif",
+        "webp": "/renders/garden-buildings/optimized/gallery-street-1600.webp",
+        "jpeg": "/renders/garden-buildings/optimized/gallery-street-1600.jpg"
+      },
+      {
+        "width": 2400,
+        "avif": "/renders/garden-buildings/optimized/gallery-street-2400.avif",
+        "webp": "/renders/garden-buildings/optimized/gallery-street-2400.webp",
+        "jpeg": "/renders/garden-buildings/optimized/gallery-street-2400.jpg"
+      },
+      {
+        "width": 3840,
+        "avif": "/renders/garden-buildings/optimized/gallery-street-3840.avif",
+        "webp": "/renders/garden-buildings/optimized/gallery-street-3840.webp",
+        "jpeg": "/renders/garden-buildings/optimized/gallery-street-3840.jpg"
+      }
+    ]
+  },
+  "objekti-h2": {
+    "original": "f07.jpg",
+    "width": 3840,
+    "height": 2160,
+    "variants": [
+      {
+        "width": 640,
+        "avif": "/renders/garden-buildings/optimized/objekti-h2-640.avif",
+        "webp": "/renders/garden-buildings/optimized/objekti-h2-640.webp",
+        "jpeg": "/renders/garden-buildings/optimized/objekti-h2-640.jpg"
+      },
+      {
+        "width": 1024,
+        "avif": "/renders/garden-buildings/optimized/objekti-h2-1024.avif",
+        "webp": "/renders/garden-buildings/optimized/objekti-h2-1024.webp",
+        "jpeg": "/renders/garden-buildings/optimized/objekti-h2-1024.jpg"
+      },
+      {
+        "width": 1600,
+        "avif": "/renders/garden-buildings/optimized/objekti-h2-1600.avif",
+        "webp": "/renders/garden-buildings/optimized/objekti-h2-1600.webp",
+        "jpeg": "/renders/garden-buildings/optimized/objekti-h2-1600.jpg"
+      },
+      {
+        "width": 2400,
+        "avif": "/renders/garden-buildings/optimized/objekti-h2-2400.avif",
+        "webp": "/renders/garden-buildings/optimized/objekti-h2-2400.webp",
+        "jpeg": "/renders/garden-buildings/optimized/objekti-h2-2400.jpg"
+      },
+      {
+        "width": 3840,
+        "avif": "/renders/garden-buildings/optimized/objekti-h2-3840.avif",
+        "webp": "/renders/garden-buildings/optimized/objekti-h2-3840.webp",
+        "jpeg": "/renders/garden-buildings/optimized/objekti-h2-3840.jpg"
+      }
+    ]
+  },
+  "objekti-h3": {
+    "original": "f06_2.jpg",
+    "width": 3840,
+    "height": 2160,
+    "variants": [
+      {
+        "width": 640,
+        "avif": "/renders/garden-buildings/optimized/objekti-h3-640.avif",
+        "webp": "/renders/garden-buildings/optimized/objekti-h3-640.webp",
+        "jpeg": "/renders/garden-buildings/optimized/objekti-h3-640.jpg"
+      },
+      {
+        "width": 1024,
+        "avif": "/renders/garden-buildings/optimized/objekti-h3-1024.avif",
+        "webp": "/renders/garden-buildings/optimized/objekti-h3-1024.webp",
+        "jpeg": "/renders/garden-buildings/optimized/objekti-h3-1024.jpg"
+      },
+      {
+        "width": 1600,
+        "avif": "/renders/garden-buildings/optimized/objekti-h3-1600.avif",
+        "webp": "/renders/garden-buildings/optimized/objekti-h3-1600.webp",
+        "jpeg": "/renders/garden-buildings/optimized/objekti-h3-1600.jpg"
+      },
+      {
+        "width": 2400,
+        "avif": "/renders/garden-buildings/optimized/objekti-h3-2400.avif",
+        "webp": "/renders/garden-buildings/optimized/objekti-h3-2400.webp",
+        "jpeg": "/renders/garden-buildings/optimized/objekti-h3-2400.jpg"
+      },
+      {
+        "width": 3840,
+        "avif": "/renders/garden-buildings/optimized/objekti-h3-3840.avif",
+        "webp": "/renders/garden-buildings/optimized/objekti-h3-3840.webp",
+        "jpeg": "/renders/garden-buildings/optimized/objekti-h3-3840.jpg"
+      }
+    ]
+  },
+  "objekti-h4": {
+    "original": "f03.jpg",
+    "width": 3840,
+    "height": 2160,
+    "variants": [
+      {
+        "width": 640,
+        "avif": "/renders/garden-buildings/optimized/objekti-h4-640.avif",
+        "webp": "/renders/garden-buildings/optimized/objekti-h4-640.webp",
+        "jpeg": "/renders/garden-buildings/optimized/objekti-h4-640.jpg"
+      },
+      {
+        "width": 1024,
+        "avif": "/renders/garden-buildings/optimized/objekti-h4-1024.avif",
+        "webp": "/renders/garden-buildings/optimized/objekti-h4-1024.webp",
+        "jpeg": "/renders/garden-buildings/optimized/objekti-h4-1024.jpg"
+      },
+      {
+        "width": 1600,
+        "avif": "/renders/garden-buildings/optimized/objekti-h4-1600.avif",
+        "webp": "/renders/garden-buildings/optimized/objekti-h4-1600.webp",
+        "jpeg": "/renders/garden-buildings/optimized/objekti-h4-1600.jpg"
+      },
+      {
+        "width": 2400,
+        "avif": "/renders/garden-buildings/optimized/objekti-h4-2400.avif",
+        "webp": "/renders/garden-buildings/optimized/objekti-h4-2400.webp",
+        "jpeg": "/renders/garden-buildings/optimized/objekti-h4-2400.jpg"
+      },
+      {
+        "width": 3840,
+        "avif": "/renders/garden-buildings/optimized/objekti-h4-3840.avif",
+        "webp": "/renders/garden-buildings/optimized/objekti-h4-3840.webp",
+        "jpeg": "/renders/garden-buildings/optimized/objekti-h4-3840.jpg"
+      }
+    ]
+  },
+  "objekti-l4": {
+    "original": "l4.jpg",
+    "width": 1920,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 640,
+        "avif": "/renders/garden-buildings/optimized/objekti-l4-640.avif",
+        "webp": "/renders/garden-buildings/optimized/objekti-l4-640.webp",
+        "jpeg": "/renders/garden-buildings/optimized/objekti-l4-640.jpg"
+      },
+      {
+        "width": 1024,
+        "avif": "/renders/garden-buildings/optimized/objekti-l4-1024.avif",
+        "webp": "/renders/garden-buildings/optimized/objekti-l4-1024.webp",
+        "jpeg": "/renders/garden-buildings/optimized/objekti-l4-1024.jpg"
+      },
+      {
+        "width": 1600,
+        "avif": "/renders/garden-buildings/optimized/objekti-l4-1600.avif",
+        "webp": "/renders/garden-buildings/optimized/objekti-l4-1600.webp",
+        "jpeg": "/renders/garden-buildings/optimized/objekti-l4-1600.jpg"
+      },
+      {
+        "width": 1920,
+        "avif": "/renders/garden-buildings/optimized/objekti-l4-1920.avif",
+        "webp": "/renders/garden-buildings/optimized/objekti-l4-1920.webp",
+        "jpeg": "/renders/garden-buildings/optimized/objekti-l4-1920.jpg"
+      }
+    ]
+  },
+  "objekti-l7": {
+    "original": "F13.jpg",
+    "width": 3840,
+    "height": 2160,
+    "variants": [
+      {
+        "width": 640,
+        "avif": "/renders/garden-buildings/optimized/objekti-l7-640.avif",
+        "webp": "/renders/garden-buildings/optimized/objekti-l7-640.webp",
+        "jpeg": "/renders/garden-buildings/optimized/objekti-l7-640.jpg"
+      },
+      {
+        "width": 1024,
+        "avif": "/renders/garden-buildings/optimized/objekti-l7-1024.avif",
+        "webp": "/renders/garden-buildings/optimized/objekti-l7-1024.webp",
+        "jpeg": "/renders/garden-buildings/optimized/objekti-l7-1024.jpg"
+      },
+      {
+        "width": 1600,
+        "avif": "/renders/garden-buildings/optimized/objekti-l7-1600.avif",
+        "webp": "/renders/garden-buildings/optimized/objekti-l7-1600.webp",
+        "jpeg": "/renders/garden-buildings/optimized/objekti-l7-1600.jpg"
+      },
+      {
+        "width": 2400,
+        "avif": "/renders/garden-buildings/optimized/objekti-l7-2400.avif",
+        "webp": "/renders/garden-buildings/optimized/objekti-l7-2400.webp",
+        "jpeg": "/renders/garden-buildings/optimized/objekti-l7-2400.jpg"
+      },
+      {
+        "width": 3840,
+        "avif": "/renders/garden-buildings/optimized/objekti-l7-3840.avif",
+        "webp": "/renders/garden-buildings/optimized/objekti-l7-3840.webp",
+        "jpeg": "/renders/garden-buildings/optimized/objekti-l7-3840.jpg"
+      }
+    ]
+  },
+  "objekti-l8": {
+    "original": "F14.jpg",
+    "width": 3840,
+    "height": 2160,
+    "variants": [
+      {
+        "width": 640,
+        "avif": "/renders/garden-buildings/optimized/objekti-l8-640.avif",
+        "webp": "/renders/garden-buildings/optimized/objekti-l8-640.webp",
+        "jpeg": "/renders/garden-buildings/optimized/objekti-l8-640.jpg"
+      },
+      {
+        "width": 1024,
+        "avif": "/renders/garden-buildings/optimized/objekti-l8-1024.avif",
+        "webp": "/renders/garden-buildings/optimized/objekti-l8-1024.webp",
+        "jpeg": "/renders/garden-buildings/optimized/objekti-l8-1024.jpg"
+      },
+      {
+        "width": 1600,
+        "avif": "/renders/garden-buildings/optimized/objekti-l8-1600.avif",
+        "webp": "/renders/garden-buildings/optimized/objekti-l8-1600.webp",
+        "jpeg": "/renders/garden-buildings/optimized/objekti-l8-1600.jpg"
+      },
+      {
+        "width": 2400,
+        "avif": "/renders/garden-buildings/optimized/objekti-l8-2400.avif",
+        "webp": "/renders/garden-buildings/optimized/objekti-l8-2400.webp",
+        "jpeg": "/renders/garden-buildings/optimized/objekti-l8-2400.jpg"
+      },
+      {
+        "width": 3840,
+        "avif": "/renders/garden-buildings/optimized/objekti-l8-3840.avif",
+        "webp": "/renders/garden-buildings/optimized/objekti-l8-3840.webp",
+        "jpeg": "/renders/garden-buildings/optimized/objekti-l8-3840.jpg"
+      }
+    ]
+  },
+  "objekti-l9": {
+    "original": "F12.jpg",
+    "width": 1536,
+    "height": 2160,
+    "variants": [
+      {
+        "width": 640,
+        "avif": "/renders/garden-buildings/optimized/objekti-l9-640.avif",
+        "webp": "/renders/garden-buildings/optimized/objekti-l9-640.webp",
+        "jpeg": "/renders/garden-buildings/optimized/objekti-l9-640.jpg"
+      },
+      {
+        "width": 1024,
+        "avif": "/renders/garden-buildings/optimized/objekti-l9-1024.avif",
+        "webp": "/renders/garden-buildings/optimized/objekti-l9-1024.webp",
+        "jpeg": "/renders/garden-buildings/optimized/objekti-l9-1024.jpg"
+      },
+      {
+        "width": 1536,
+        "avif": "/renders/garden-buildings/optimized/objekti-l9-1536.avif",
+        "webp": "/renders/garden-buildings/optimized/objekti-l9-1536.webp",
+        "jpeg": "/renders/garden-buildings/optimized/objekti-l9-1536.jpg"
+      }
+    ]
+  },
+  "plan-l9-tipi-96-26": {
+    "original": "plans/Banesa-96.26m²-Kati-3.jpg",
+    "width": 1163,
+    "height": 1575,
+    "variants": [
+      {
+        "width": 640,
+        "avif": "/renders/garden-buildings/optimized/plan-l9-tipi-96-26-640.avif",
+        "webp": "/renders/garden-buildings/optimized/plan-l9-tipi-96-26-640.webp",
+        "jpeg": "/renders/garden-buildings/optimized/plan-l9-tipi-96-26-640.jpg"
+      },
+      {
+        "width": 1024,
+        "avif": "/renders/garden-buildings/optimized/plan-l9-tipi-96-26-1024.avif",
+        "webp": "/renders/garden-buildings/optimized/plan-l9-tipi-96-26-1024.webp",
+        "jpeg": "/renders/garden-buildings/optimized/plan-l9-tipi-96-26-1024.jpg"
+      },
+      {
+        "width": 1163,
+        "avif": "/renders/garden-buildings/optimized/plan-l9-tipi-96-26-1163.avif",
+        "webp": "/renders/garden-buildings/optimized/plan-l9-tipi-96-26-1163.webp",
+        "jpeg": "/renders/garden-buildings/optimized/plan-l9-tipi-96-26-1163.jpg"
+      }
+    ]
+  },
+  "plan-l9-tipi-89-01": {
+    "original": "plans/Banesa-89.01m²-Kati-Perdhes-3.jpg",
+    "width": 1092,
+    "height": 1575,
+    "variants": [
+      {
+        "width": 640,
+        "avif": "/renders/garden-buildings/optimized/plan-l9-tipi-89-01-640.avif",
+        "webp": "/renders/garden-buildings/optimized/plan-l9-tipi-89-01-640.webp",
+        "jpeg": "/renders/garden-buildings/optimized/plan-l9-tipi-89-01-640.jpg"
+      },
+      {
+        "width": 1024,
+        "avif": "/renders/garden-buildings/optimized/plan-l9-tipi-89-01-1024.avif",
+        "webp": "/renders/garden-buildings/optimized/plan-l9-tipi-89-01-1024.webp",
+        "jpeg": "/renders/garden-buildings/optimized/plan-l9-tipi-89-01-1024.jpg"
+      },
+      {
+        "width": 1092,
+        "avif": "/renders/garden-buildings/optimized/plan-l9-tipi-89-01-1092.avif",
+        "webp": "/renders/garden-buildings/optimized/plan-l9-tipi-89-01-1092.webp",
+        "jpeg": "/renders/garden-buildings/optimized/plan-l9-tipi-89-01-1092.jpg"
+      }
+    ]
+  },
+  "plan-l9-penthouse-139-44": {
+    "original": "plans/Banesa-139.44m²-Kati-9-1.jpg",
+    "width": 2592,
+    "height": 1173,
+    "variants": [
+      {
+        "width": 640,
+        "avif": "/renders/garden-buildings/optimized/plan-l9-penthouse-139-44-640.avif",
+        "webp": "/renders/garden-buildings/optimized/plan-l9-penthouse-139-44-640.webp",
+        "jpeg": "/renders/garden-buildings/optimized/plan-l9-penthouse-139-44-640.jpg"
+      },
+      {
+        "width": 1024,
+        "avif": "/renders/garden-buildings/optimized/plan-l9-penthouse-139-44-1024.avif",
+        "webp": "/renders/garden-buildings/optimized/plan-l9-penthouse-139-44-1024.webp",
+        "jpeg": "/renders/garden-buildings/optimized/plan-l9-penthouse-139-44-1024.jpg"
+      },
+      {
+        "width": 1600,
+        "avif": "/renders/garden-buildings/optimized/plan-l9-penthouse-139-44-1600.avif",
+        "webp": "/renders/garden-buildings/optimized/plan-l9-penthouse-139-44-1600.webp",
+        "jpeg": "/renders/garden-buildings/optimized/plan-l9-penthouse-139-44-1600.jpg"
+      },
+      {
+        "width": 2400,
+        "avif": "/renders/garden-buildings/optimized/plan-l9-penthouse-139-44-2400.avif",
+        "webp": "/renders/garden-buildings/optimized/plan-l9-penthouse-139-44-2400.webp",
+        "jpeg": "/renders/garden-buildings/optimized/plan-l9-penthouse-139-44-2400.jpg"
+      },
+      {
+        "width": 2592,
+        "avif": "/renders/garden-buildings/optimized/plan-l9-penthouse-139-44-2592.avif",
+        "webp": "/renders/garden-buildings/optimized/plan-l9-penthouse-139-44-2592.webp",
+        "jpeg": "/renders/garden-buildings/optimized/plan-l9-penthouse-139-44-2592.jpg"
+      }
+    ]
+  }
+}
