@@ -76,7 +76,7 @@ export function ContactDialogProvider({ children }: { readonly children: ReactNo
                 </button>
               </div>
               <div className="mt-3 mb-8 max-w-[44ch] space-y-1 text-ink-muted">
-                <p>Lini të dhënat tuaja dhe zyra e shitjes së Pozhegu Brothers ju kontakton.</p>
+                <p>Lini të dhënat tuaja dhe zyra e shitjes ju kontakton.</p>
                 <SalesPhoneLine className="text-small" />
               </div>
               <LeadForm

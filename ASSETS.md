@@ -1,111 +1,64 @@
-# Assets from pozhegubrothers.com
+# Assets
 
-Downloaded 2026-09-28, at ElevateUrBox's request, for the redesign demo presented to Pozhegu Brothers. Sources: pozhegubrothers.com only. Brand SVGs are listed first; the Garden Buildings renders are in their own section below.
+Every asset in this repository is original to the demo or generated from data in it. Nothing comes
+from a real developer's website, brochure or social profile.
 
-Originals are kept byte-for-byte in `public/brand/original/`. The app only uses the optimised copies. Copies were optimised with SVGO 4.1 (`svgo.config.mjs`), which keeps the `viewBox` and does not convert colour values. Each copy was rasterised at 4× next to its original and compared pixel by pixel: **0 differing pixels** for every file.
+## Brand
 
-## Logo
-
-| Working copy | Original | Source | Changes |
-| --- | --- | --- | --- |
-| `public/brand/pozhegu-logo.svg` | `original/logo.svg` | https://pozhegubrothers.com/wp-content/themes/pozhegubrothers/images/logo.svg | SVGO only (14.3 kB → 4.9 kB). Illustrator metadata and the `<style>` block removed; class fills inlined; hex written in lowercase (same colours: `#7294A4` wordmark, `#F49022` mark). |
-| `public/brand/pozhegu-logo-white.svg` | `original/logo.svg` | as above | Copy of the optimised logo with **one change**: the wordmark fill `#7294a4` → `#ffffff`. The orange mark is unchanged. Used only in the transparent header over the hero render. |
-
-The logo is pure vector paths (no embedded raster `<image>`). The original works on our ink background (wordmark 5.6:1, mark 7.7:1), so the footer and the open mobile menu use it unchanged.
+The Arrita Ndërtim logo, favicons, touch icons and share image are drawn by
+`scripts/generate-brand.mjs` (`npm run assets:brand`) from geometry defined in that script, with
+colours read from the tokens in `src/styles/index.css`. The lettering is a monoline alphabet drawn
+for this project; no font file is involved. See the table in the README for each output file.
 
 ## Icons
 
-The site has no separate icon files. The icons below are inline `<svg>` elements in the homepage markup (https://pozhegubrothers.com/). Each was saved exactly as it appears there.
+All UI icons (arrows, phone, mail, chat, menu, close, zoom) come from our own line set in
+`src/components/ui/Icon.tsx`. There are no social icons: the fictional developer has no profiles.
 
-| Working copy | Original | Where on their site | Used? |
-| --- | --- | --- | --- |
-| `src/assets/icons/social-facebook-light.svg` | `original/social-facebook-light.svg` | Footer social links (white) | **Yes**, footer social link |
-| `src/assets/icons/social-instagram-light.svg` | `original/social-instagram-light.svg` | Footer social links (white) | **Yes**, footer social link |
-| `src/assets/icons/social-facebook-dark.svg` | `original/social-facebook-dark.svg` | Mobile menu social links (black) | No: we have no light surface that needs it yet |
-| `src/assets/icons/social-instagram-dark.svg` | `original/social-instagram-dark.svg` | Mobile menu social links (black) | No: as above |
-| `src/assets/icons/social-x-light.svg` / `-dark.svg` | `original/social-x-*.svg` | Footer and menu | **Skipped**: on their site it links to the generic https://twitter.com, not a Pozhegu account |
-| `src/assets/icons/quote.svg` | `original/quote.svg` | Testimonials slider (`#FFAC12`) | **Skipped**: a heavy filled shape that doesn't match the thin line style. The testimonials section uses typographic quotation marks „ “ instead |
+## Fonts
 
-All other UI icons (arrows, phone, mail, chat, menu, close, zoom) come from our own line set in `src/components/ui/Icon.tsx`. Their site has no equivalents.
+DM Sans (variable, SIL Open Font License), self-hosted through `@fontsource-variable/dm-sans`.
 
-## Not downloaded
+## Renders
 
-- `https://pozhegubrothers.com/wp-content/plugins/wpforms-lite/assets/images/submit-spin.svg`: a WPForms plugin loading spinner, not a Pozhegu brand asset.
-- Their favicons (`favicon-16x16.png`, `favicon-32x32.png`, `apple-touch-icon.png`): raster files, outside the SVG-only rule. We generate our own from the logo SVG instead (see below).
+Both renders are AI-generated images, made for this demo on 2026-10-17 with Canva's image
+generation (through the Canva connector, in ElevateUrBox's Canva account) from text prompts that
+describe a fictional complex: no real building, site, brand or person is depicted. They were exported
+from Canva at their native size as PNG, then upscaled 2× (see below). The upscaled files are the
+originals in `public/renders/demo/original/` (git-ignored); the Canva exports are kept beside them in
+`original/pre-upscale/`. `npm run assets:images` generates the AVIF/WebP/JPEG variants and the
+manifest.
 
-## Other content taken from their site
+| Original     | Size                                                    | Prompt (summary)                                                                                                                                                                                                                                                      | Used as                                                                                                                                    |
+| ------------ | ------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `aerial.png` | 3360 × 1888 PNG (Canva export 1680 × 944, upscaled 2×)  | Aerial view at ~45° of a modern complex of four separate buildings on a 2 × 2 grid, two taller towers behind and two lower blocks in front, white and light grey facades with wood accents, balconies with glass railings, green courtyards; no text, logos or people | `overview`: the home hero and the building selector. Buildings traced: A1 (back left), A2 (back right), B1 (front left), B2 (front right). |
+| `facade.png` | 2272 × 2816 PNG (Canva export 1136 × 1408, upscaled 2×) | Straight-on frontal elevation of one tower of the same architecture: ground floor with two units and a glazed entrance, typical floors of four apartment bays, set-back top floor with two penthouse terraces                                                         | `objekti-a1`: A1's facade, every apartment traced                                                                                          |
 
-- Client testimonials (four of nine) from the homepage section "Nga Klientët tanë", in `src/config/testimonials.ts`. Spelling corrections are listed in that file.
-- Facebook and Instagram profile URLs (`src/config/contact.ts` → `social`), as linked in their footer.
+The image generator did not follow the requested floor counts exactly; the data follows the images
+(towers ground floor + 9, low blocks ground floor + 5). The towers on the aerial show a different
+bay rhythm from the facade render, as the two images were generated separately; both read as the
+same architecture at the sizes they are shown.
 
-## Generated from the logo
+### Upscaling
 
-`scripts/generate-icons.mjs` builds these from `public/brand/pozhegu-logo.svg`. It uses the orange mark's path (`#f49022`) exactly as published, centred on an ink (`#161513`) square with 14% padding. The wordmark is left out because it is illegible at favicon sizes. Re-run the script if the logo changes.
+The Canva exports were too soft for a full-width hero, so both were upscaled locally on 2026-10-17
+with **Real-ESRGAN** (`realesrgan-ncnn-vulkan` v0.2.5.0, Windows build from the official GitHub
+release https://github.com/xinntao/Real-ESRGAN/releases/tag/v0.2.5.0), model **realesrgan-x4plus**:
 
-| File | Size |
-| --- | --- |
-| `public/favicon.svg` | vector |
-| `public/favicon.ico` | 32 + 16 px (PNG-in-ICO) |
-| `public/apple-touch-icon.png` | 180 px |
-| `public/icons/icon-192.png`, `icon-512.png` | 192 / 512 px, referenced by `public/site.webmanifest` |
+1. `realesrgan-ncnn-vulkan -n realesrgan-x4plus -s 4`: 4× output (the model is 4× only).
+2. Downscaled to exactly 2× with a Lanczos-3 resize (sharp).
+3. `aerial.png` only: blended 75 % Real-ESRGAN with 25 % of the original enlarged 2× with Lanczos-3.
+   Pure Real-ESRGAN made paving and lawns look painted and drew small crack lines into the paving;
+   the blend keeps the sharpened buildings and brings back the original texture there.
+   `facade.png` is pure Real-ESRGAN, which reads clean on the facade.
 
-`public/og/garden-buildings.jpg` (1200 × 630, 165 kB) is a centre crop of the overview render `F18.jpg`, generated by `scripts/optimize-renders.mjs` (see below).
+Every polygon coordinate was doubled with the images (`review/overlays/polygons.json`; the 1×
+version is `polygons-pre-upscale.json`) and checked again with the overlays. A 1920 px hero
+before/after comparison is in `review/upscale/`.
 
-## Garden Buildings renders
+Polygon review overlays (each outline drawn on its image with its id and status colour) are in
+`review/overlays/` (git-ignored), together with the `polygons.json` that was applied.
 
-Crawled on 2026-09-28 from the project page https://pozhegubrothers.com/objektet/garden-buildings/ and the seven building pages it links to (`/objektet/objekti-h2/` … `/objekti-l9/`). No other pages were fetched.
+## Floor plans
 
-- **What was collected:** every `<img>` `src`/`srcset`/lazy attribute, inline `url()` and theme-CSS `url()`. Requests were sequential, 1 s apart, with no retries.
-- **Largest original:** for each image, the WordPress original without the `-scaled`, edit (`-e1740…`) or size suffixes was tried; the largest file that existed was kept. Requests sent `Accept: image/jpeg,image/png`, and every file's format was verified from its bytes: all are real JPEGs except `featureimage-scaled-1.webp`, which is published as WebP.
-- **Duplicates:** removed by SHA-256. The site serves the same file under several URLs (for example `F12.jpg`, `F12-1-scaled.jpg` and `F12-scaled-e1740569695592.jpg`).
-- **Skipped:** logos and icons (see above). No brochure sheets (`Fleta-*`) or PDFs were linked. No image was under 1000 px wide.
-- **Storage:** originals are kept byte-for-byte in `public/renders/garden-buildings/original/`. They are git-ignored and excluded from the production build (about 95 MB). `scripts/renders.config.json` records each original's source URL, so `npm run assets:images:fetch` re-downloads any that are missing and regenerates everything.
-- **Optimisation:** `node scripts/optimize-renders.mjs` generates the variants listed in `scripts/renders.config.json` into `public/renders/garden-buildings/optimized/`, and writes the real pixel sizes to `src/data/generated/garden-buildings-renders.json`.
-
-| Original file | Size | Found on | Source URL | What we did |
-| --- | --- | --- | --- | --- |
-| `F11.jpg` | 3840 × 2160 JPEG | /objektet/garden-buildings/, /objektet/objekti-l7/, /objektet/objekti-l8/ | /wp-content/uploads/2025/01/F11.jpg (page used /wp-content/uploads/2025/01/F11-scaled.jpg, /wp-content/uploads/2025/02/F11-scaled.jpg) | Untouched original → optimised as `hero` (AVIF/WebP/JPEG, 640–3840 px). |
-| `F13.jpg` | 3840 × 2160 JPEG | /objektet/garden-buildings/, /objektet/objekti-l7/, /objektet/objekti-l8/ | /wp-content/uploads/2025/01/F13.jpg (page used /wp-content/uploads/2025/01/F13-scaled.jpg, /wp-content/uploads/2024/05/F13-scaled.jpg, /wp-content/uploads/2025/02/F13-scaled.jpg) | Untouched original → optimised as `objekti-l7` (AVIF/WebP/JPEG, 640–3840 px). |
-| `F18.jpg` | 3840 × 2160 JPEG | /objektet/garden-buildings/ | /wp-content/uploads/2025/01/F18.jpg (page used /wp-content/uploads/2025/01/F18-scaled.jpg) | Untouched original → optimised as `overview` (AVIF/WebP/JPEG, 640–3840 px). Also cropped to 1200×630 for `public/og/garden-buildings.jpg`. |
-| `F20.jpg` | 3840 × 2160 JPEG | /objektet/garden-buildings/, /objektet/objekti-l9/ | /wp-content/uploads/2025/01/F20.jpg (page used /wp-content/uploads/2025/01/F20-scaled.jpg, /wp-content/uploads/2025/02/F20-scaled.jpg) | Untouched original → optimised as `gallery-terraces` (AVIF/WebP/JPEG, 640–3840 px). |
-| `f07.jpg` | 3840 × 2160 JPEG | /objektet/garden-buildings/ | /wp-content/uploads/2024/05/f07.jpg (page used /wp-content/uploads/2024/05/f07-scaled.jpg) | Untouched original → optimised as `objekti-h2` (AVIF/WebP/JPEG, 640–3840 px). |
-| `f06_2.jpg` | 3840 × 2160 JPEG | /objektet/garden-buildings/ | /wp-content/uploads/2024/05/f06_2.jpg (page used /wp-content/uploads/2024/05/f06_2-scaled.jpg) | Untouched original → optimised as `objekti-h3` (AVIF/WebP/JPEG, 640–3840 px). |
-| `f03.jpg` | 3840 × 2160 JPEG | /objektet/garden-buildings/, /objektet/objekti-h4/ | /wp-content/uploads/2025/04/f03.jpg (page used /wp-content/uploads/2025/04/f03-scaled.jpg) | Untouched original → optimised as `objekti-h4` (AVIF/WebP/JPEG, 640–3840 px). |
-| `F19.jpg` | 3840 × 2160 JPEG | /objektet/garden-buildings/, /objektet/objekti-l7/, /objektet/objekti-l8/ | /wp-content/uploads/2024/04/F19.jpg (page used /wp-content/uploads/2024/04/F19-scaled.jpg, /wp-content/uploads/2025/02/F19-scaled.jpg) | Untouched original; not used in the site. |
-| `F14.jpg` | 3840 × 2160 JPEG | /objektet/garden-buildings/, /objektet/objekti-l9/ | /wp-content/uploads/2024/05/F14.jpg (page used /wp-content/uploads/2024/05/F14-scaled.jpg, /wp-content/uploads/2025/02/F14-scaled.jpg) | Untouched original → optimised as `objekti-l8` (AVIF/WebP/JPEG, 640–3840 px). |
-| `F12.jpg` | 2568 × 2160 JPEG | /objektet/garden-buildings/, /objektet/objekti-l7/, /objektet/objekti-l8/, /objektet/objekti-l9/ | /wp-content/uploads/2024/04/F12.jpg (page used /wp-content/uploads/2024/04/F12-scaled-e1740569695592.jpg, /wp-content/uploads/2025/02/F12-scaled.jpg, /wp-content/uploads/2025/02/F12-1-scaled.jpg) | Untouched original. Cropped to L9 only (x 48–1584, full height; the right part shows L10) → optimised as `objekti-l9` (1536 × 2160, AVIF/WebP/JPEG, 640–1536 px). L9 hotspot coordinates are in crop pixels. |
-| `Garden-Buildings-1.jpg` | 1692 × 2118 JPEG | /objektet/garden-buildings/, /objektet/objekti-h2/, /objektet/objekti-h3/, /objektet/objekti-h4/, /objektet/objekti-l4/, /objektet/objekti-l7/, /objektet/objekti-l8/, /objektet/objekti-l9/ | /wp-content/uploads/2025/12/Garden-Buildings-1.jpg | Untouched original; not used in the site. |
-| `featureimage-scaled-1.webp` | 2560 × 1810 WEBP | /objektet/garden-buildings/ | /wp-content/uploads/2025/12/featureimage-scaled-1.webp | Untouched original; not used in the site. |
-| `f03_2.jpg` | 1920 × 1080 JPEG | /objektet/objekti-h2/, /objektet/objekti-h3/ | /wp-content/uploads/2025/02/f03_2.jpg | Untouched original; not used in the site. |
-| `f04-1.jpg` | 3840 × 2160 JPEG | /objektet/objekti-h2/, /objektet/objekti-h3/ | /wp-content/uploads/2025/02/f04-1.jpg (page used /wp-content/uploads/2025/02/f04-1-scaled.jpg) | Untouched original; not used in the site. |
-| `f01-1.jpg` | 3840 × 2160 JPEG | /objektet/objekti-h2/, /objektet/objekti-h3/ | /wp-content/uploads/2025/02/f01-1.jpg (page used /wp-content/uploads/2025/02/f01-1-scaled.jpg) | Untouched original; not used in the site. |
-| `f08-1.jpg` | 3840 × 2160 JPEG | /objektet/objekti-h2/, /objektet/objekti-h3/ | /wp-content/uploads/2025/02/f08-1.jpg (page used /wp-content/uploads/2025/02/f08-1-scaled.jpg) | Untouched original; not used in the site. |
-| `L4-1-.jpg` | 1920 × 1080 JPEG | /objektet/objekti-l4/ | /wp-content/uploads/2025/02/L4-1-.jpg | Untouched original; not used in the site. |
-| `L4-4.jpg` | 1920 × 1080 JPEG | /objektet/objekti-l4/ | /wp-content/uploads/2025/02/L4-4.jpg | Untouched original; not used in the site. |
-| `L4-5.jpg` | 1920 × 1080 JPEG | /objektet/objekti-l4/ | /wp-content/uploads/2025/02/L4-5.jpg | Untouched original; not used in the site. |
-| `l4.jpg` | 1920 × 1080 JPEG | /objektet/objekti-l4/ | /wp-content/uploads/2025/02/l4.jpg | Untouched original → optimised as `objekti-l4` (AVIF/WebP/JPEG, 640–1920 px). |
-| `F16.jpg` | 3840 × 2160 JPEG | /objektet/objekti-l7/, /objektet/objekti-l8/ | /wp-content/uploads/2025/02/F16.jpg (page used /wp-content/uploads/2025/02/F16-scaled.jpg) | Untouched original → optimised as `gallery-courtyard` (AVIF/WebP/JPEG, 640–3840 px). |
-
-## L9 floor plans
-
-For the fully traced building (Objekti L9) only, each unit type's own page was fetched: the three pages linked from `/objektet/objekti-l9/`. Same rules as above: sequential, 1 s apart, largest original. Each page has three images:
-
-1. A brochure sheet (4528 × 1832). It holds the coloured floor plan plus a small site plan, compass, logo, caption bar and a phone number.
-2. An aerial with the unit highlighted.
-3. The L9 facade with the unit highlighted.
-
-Only the brochure sheets were kept. The other two images per type were downloaded to identify the plan, then discarded; they are not in the project. The eight WhatsApp photos on the 96.26 m² page were not downloaded. No PDFs were linked.
-
-The plan is extracted from each sheet as a crop of the drawing area only; the crop boxes are in `scripts/renders.config.json`. It is then optimised like the renders.
-
-| Original (in `original/plans/`) | Size | Source page | Source URL | What we did |
-| --- | --- | --- | --- | --- |
-| `Banesa-96.26m²-Kati-3.jpg` | 4528 × 1832 JPEG | /projektet/tipi-96-26-m²/ | /wp-content/uploads/2025/05/Banesa-96.26m²-Kati-3.jpg (page used `-scaled`) | Cropped to the plan (1163 × 1360) → `plan-l9-tipi-96-26` |
-| `Banesa-89.01m²-Kati-Perdhes-3.jpg` | 4528 × 1832 JPEG | /projektet/tipi-89-01/ | /wp-content/uploads/2024/04/Banesa-89.01m²-Kati-Perdhes-3.jpg (page used `-scaled`) | Cropped to the plan (1092 × 1360) → `plan-l9-tipi-89-01` |
-| `Banesa-139.44m²-Kati-9-1.jpg` | 4528 × 1832 JPEG | /projektet/penthouse-139-44/ | /wp-content/uploads/2024/04/Banesa-139.44m²-Kati-9-1.jpg (page used `-scaled`) | Cropped to the plan (2592 × 1084) → `plan-l9-penthouse-139-44` |
-
-Note: the penthouse sheet's caption reads "Banesa 138.44 m²", but the building and type pages list the unit as 139.44 m². The data uses 139.44 (the listing) until Pozhegu confirms.
-
-## Data taken from their site
-
-- Unit types for all seven buildings (room category, exact area, floors, type page URL), from the seven building pages. They are in `src/data/garden-buildings.ts`, one apartment per type × floor. Apartment statuses are demo data.
+None. Every apartment page offers "Kërko planin" instead of a floor plan.

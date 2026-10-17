@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router';
+import { DemoBadge } from '@/components/demo/DemoBadge';
 import { Icon } from '@/components/ui/Icon';
 import { featuredProject } from '@/data/projects';
 import type { ApartmentStatus } from '@/data/types';
@@ -155,6 +156,8 @@ export function DemoAdminPage() {
       </main>
 
       <ResetBar changeCount={changeCount} onReset={resetApartmentStatuses} />
+      {/* Above the reset bar. */}
+      <DemoBadge className="bottom-[calc(5rem+env(safe-area-inset-bottom))]" />
     </div>
   );
 }

@@ -7,7 +7,7 @@ declare module 'virtual:public-assets' {
 }
 
 interface ImportMetaEnv {
-  /** Optional WhatsApp number for the lead-form hand-off (see src/config/contact.ts). */
+  /** Optional WhatsApp number for the lead-form hand-off; unset hides every WhatsApp action. */
   readonly VITE_WHATSAPP_NUMBER?: string;
 }
 

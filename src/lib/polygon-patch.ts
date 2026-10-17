@@ -1,5 +1,5 @@
 /**
- * Writes traced polygons into a project data file (the literal format of src/data/garden-buildings.ts).
+ * Writes traced polygons into a project data file (the literal format of src/data/rezidenca-arrita.ts).
  * Used by scripts/apply-polygons.ts; kept free of app imports so Node can run it directly.
  */
 

@@ -1,7 +1,7 @@
 import type { TracedPolygon } from './editor-state';
 
 /** Versioned key so a future format change never reads stale data. */
-const STORAGE_KEY = 'pozhegu-editor-session-v1';
+const STORAGE_KEY = 'elevateurbox-demo:editor-session:v1';
 
 function isTracedPolygon(value: unknown): value is TracedPolygon {
   if (typeof value !== 'object' || value === null) return false;

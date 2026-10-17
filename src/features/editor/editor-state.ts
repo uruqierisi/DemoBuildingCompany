@@ -8,9 +8,9 @@ export type TargetKind = 'building' | 'apartment' | 'sold';
 /** A polygon traced in this session and assigned to a building or apartment. */
 export interface TracedPolygon {
   readonly kind: TargetKind;
-  /** Building id (e.g. "objekti-h4") or apartment id (e.g. "h4-301"). */
+  /** Building id (e.g. "objekti-a2") or apartment id (e.g. "a2-301"). */
   readonly id: string;
-  /** Key of the image the polygon was traced on (e.g. "garden-buildings:overview"); its pixel space is the path's coordinate space. */
+  /** Key of the image the polygon was traced on (e.g. "rezidenca-arrita:overview"); its pixel space is the path's coordinate space. */
   readonly image: string;
   readonly imageSize: ImageSize;
   readonly svgPath: string;

@@ -3,17 +3,14 @@ import { hasPublicAsset } from '@/lib/assets';
 import { cn } from '@/lib/cn';
 
 interface LogoProps {
-  /**
-   * The logo sits over a photograph (the hero render). Uses the white-wordmark copy, since the
-   * slate wordmark can disappear into mid-tone imagery. Solid ink and paper grounds use the original.
-   */
-  readonly onImage?: boolean;
+  /** On an ink ground (hero, footer, open menu): the white-wordmark lockup. */
+  readonly isInverse?: boolean;
   readonly className?: string;
 }
 
-/** Official Pozhegu Brothers logo from /public/brand; a labelled outline box until the file exists. */
-export function Logo({ onImage = false, className }: LogoProps) {
-  const logo = onImage ? SITE.logo.onImage : SITE.logo.default;
+/** The Arrita Ndërtim lockup from /public/brand; a labelled outline box until the file exists. */
+export function Logo({ isInverse = false, className }: LogoProps) {
+  const logo = isInverse ? SITE.logo.inverse : SITE.logo.default;
   const sizeClasses = 'h-9 w-auto lg:h-11';
 
   if (hasPublicAsset(logo.src)) {

@@ -1,7 +1,6 @@
 /**
- * Opening hours stored per day, formatted on demand: compactly in Albanian for the page
- * ("E hënë – e premte: 09:00–17:00") and grouped for schema.org. Kept free of app aliases and
- * browser APIs, so the build (JSON-LD in index.html) can use it too.
+ * Opening hours stored per day, formatted on demand compactly in Albanian for the page
+ * ("E hënë – e premte: 09:00–17:00").
  */
 
 export const WEEKDAYS = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'] as const;
@@ -19,16 +18,6 @@ const DAY_LABELS: Readonly<Record<Weekday, string>> = {
   friday: 'E premte',
   saturday: 'E shtunë',
   sunday: 'E diel',
-};
-
-const SCHEMA_DAYS: Readonly<Record<Weekday, string>> = {
-  monday: 'Monday',
-  tuesday: 'Tuesday',
-  wednesday: 'Wednesday',
-  thursday: 'Thursday',
-  friday: 'Friday',
-  saturday: 'Saturday',
-  sunday: 'Sunday',
 };
 
 const CLOSED_LABEL = 'Mbyllur';
@@ -68,27 +57,5 @@ export function formatOpeningHours(hours: WeeklyHours): HoursLine[] {
       days: last ? `${first} – ${last.charAt(0).toLowerCase()}${last.slice(1)}` : first,
       time: dayHours ? `${dayHours.opens}–${dayHours.closes}` : CLOSED_LABEL,
     };
-  });
-}
-
-export interface OpeningHoursSpecification {
-  readonly '@type': 'OpeningHoursSpecification';
-  readonly dayOfWeek: string[];
-  readonly opens: string;
-  readonly closes: string;
-}
-
-/** schema.org openingHoursSpecification: days sharing the same hours together; closed days omitted. */
-export function toOpeningHoursSpecification(hours: WeeklyHours): OpeningHoursSpecification[] {
-  const byHours = new Map<string, Weekday[]>();
-  for (const day of WEEKDAYS) {
-    const dayHours = hours[day];
-    if (!dayHours) continue;
-    const key = `${dayHours.opens}-${dayHours.closes}`;
-    byHours.set(key, [...(byHours.get(key) ?? []), day]);
-  }
-  return [...byHours.entries()].map(([key, days]) => {
-    const [opens = '', closes = ''] = key.split('-');
-    return { '@type': 'OpeningHoursSpecification', dayOfWeek: days.map((day) => SCHEMA_DAYS[day]), opens, closes };
   });
 }

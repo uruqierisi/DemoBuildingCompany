@@ -1,9 +1,10 @@
 import { Icon, type IconName } from '@/components/ui/Icon';
-import { CONTACT, emailHref, phoneHref } from '@/config/contact';
+import { emailHref, phoneHref, type ContactDetails } from '@/config/contact';
 import { EmailAddress } from './EmailAddress';
 import { whatsappHref } from '@/lib/whatsapp';
 
 interface ContactLinksProps {
+  readonly details: ContactDetails;
   /** Pre-filled WhatsApp message and e-mail subject, e.g. naming the project or apartment. */
   readonly topic: string;
 }
@@ -19,10 +20,10 @@ interface ContactLinkItem {
 }
 
 /** Large call / WhatsApp / e-mail rows. Every row is a real tel:, wa.me or mailto: link. */
-export function ContactLinks({ topic }: ContactLinksProps) {
+export function ContactLinks({ details, topic }: ContactLinksProps) {
   const whatsapp = whatsappHref(`Përshëndetje, jam i interesuar për ${topic}.`);
   const items: readonly ContactLinkItem[] = [
-    { label: 'Telefon', value: CONTACT.phoneDisplay, href: phoneHref, icon: 'arrow-right', isNumeric: true },
+    { label: 'Telefon', value: details.phoneDisplay, href: phoneHref(details), icon: 'arrow-right', isNumeric: true },
     ...(whatsapp
       ? [
           {
@@ -34,7 +35,7 @@ export function ContactLinks({ topic }: ContactLinksProps) {
           } as const,
         ]
       : []),
-    { label: 'E-mail', value: CONTACT.email, href: emailHref(topic), icon: 'arrow-right', isEmail: true },
+    { label: 'E-mail', value: details.email, href: emailHref(details, topic), icon: 'arrow-right', isEmail: true },
   ];
 
   return (

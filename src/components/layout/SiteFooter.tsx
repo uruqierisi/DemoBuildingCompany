@@ -1,13 +1,12 @@
 import type { ReactNode } from 'react';
 import { Link } from 'react-router';
-import facebookIcon from '@/assets/icons/social-facebook-light.svg';
-import instagramIcon from '@/assets/icons/social-instagram-light.svg';
 import { ContactButton } from '@/components/contact/ContactButton';
 import { EmailAddress } from '@/components/contact/EmailAddress';
-import { CONTACT, CONTACT_DETAILS_CONFIRMED, emailHref, phoneHref } from '@/config/contact';
-import { whatsappHref } from '@/lib/whatsapp';
 import { OfficeAddress, OpeningHours } from '@/components/contact/OfficeDetails';
-import { SITE } from '@/config/site';
+import { DemoNotice } from '@/components/demo/DemoNotice';
+import { CONTACT_DETAILS, emailHref, phoneHref } from '@/config/contact';
+import { DEMO, SITE } from '@/config/site';
+import { whatsappHref } from '@/lib/whatsapp';
 import { featuredProject } from '@/data/projects';
 import { routes } from '@/lib/routes';
 import { Logo } from './Logo';
@@ -15,12 +14,6 @@ import { Logo } from './Logo';
 // inline-flex + min-h-6: every text link is at least 24px tall (WCAG 2.5.8) without changing the rhythm;
 // on touch screens 44px, with the list spacing folded into the taller rows.
 const LINK = 'inline-flex min-h-6 items-center pointer-coarse:min-h-11 transition-colors hover:text-accent';
-
-/** Pozhegu's own social icons (white footer variants from pozhegubrothers.com, unmodified). */
-const SOCIAL_LINKS = [
-  { label: 'Pozhegu Brothers në Facebook', href: CONTACT.social.facebook, icon: facebookIcon },
-  { label: 'Pozhegu Brothers në Instagram', href: CONTACT.social.instagram, icon: instagramIcon },
-] as const;
 
 function FooterColumn({ title, children }: { readonly title: string; readonly children: ReactNode }) {
   return (
@@ -40,34 +33,19 @@ export function SiteFooter() {
       <div className="page-container pt-section-sm pb-10">
         <div className="page-grid gap-y-14">
           <div className="col-span-full md:col-span-8 lg:col-span-4">
-            <Logo />
+            <Logo isInverse />
             <p className="mt-10 max-w-[22ch] text-subheading text-white">
               Keni pyetje për një banesë? Na shkruani dhe zyra e shitjes ju kontakton.
             </p>
-            <ul className="mt-8 -ml-3 flex gap-1">
-              {SOCIAL_LINKS.map((social) => (
-                <li key={social.href}>
-                  <a
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={social.label}
-                    className="flex size-11 items-center justify-center rounded-xs transition-opacity hover:opacity-60"
-                  >
-                    <img src={social.icon} alt="" width={20} height={20} />
-                  </a>
-                </li>
-              ))}
-            </ul>
           </div>
 
-          <div className="col-span-full md:col-span-3 lg:col-span-3 lg:col-start-6">
+          <div className="col-span-full md:col-span-3 lg:col-span-2 lg:col-start-6">
             <FooterColumn title="Kontakti">
-              {CONTACT_DETAILS_CONFIRMED ? (
+              {CONTACT_DETAILS ? (
                 <ul className="space-y-2.5 pointer-coarse:space-y-0">
                   <li>
-                    <a href={phoneHref} className={`${LINK} tabular-nums`}>
-                      {CONTACT.phoneDisplay}
+                    <a href={phoneHref(CONTACT_DETAILS)} className={`${LINK} tabular-nums`}>
+                      {CONTACT_DETAILS.phoneDisplay}
                     </a>
                   </li>
                   {whatsapp ? (
@@ -78,8 +56,8 @@ export function SiteFooter() {
                     </li>
                   ) : null}
                   <li>
-                    <a href={emailHref()} className={`${LINK} break-words`}>
-                      <EmailAddress email={CONTACT.email} />
+                    <a href={emailHref(CONTACT_DETAILS)} className={`${LINK} break-words`}>
+                      <EmailAddress email={CONTACT_DETAILS.email} />
                     </a>
                   </li>
                 </ul>
@@ -89,11 +67,17 @@ export function SiteFooter() {
             </FooterColumn>
           </div>
 
-          <div className="col-span-2 md:col-span-3 lg:col-span-2">
-            <FooterColumn title={CONTACT.office.name}>
-              <OfficeAddress />
-              <OpeningHours className="mt-4 text-inverse-muted" />
-            </FooterColumn>
+          <div className="col-span-full md:col-span-3">
+            {CONTACT_DETAILS ? (
+              <FooterColumn title={CONTACT_DETAILS.office.name}>
+                <OfficeAddress />
+                <OpeningHours className="mt-4 text-inverse-muted" />
+              </FooterColumn>
+            ) : (
+              <FooterColumn title="Demo">
+                <DemoNotice isInverse />
+              </FooterColumn>
+            )}
           </div>
 
           <div className="col-span-2 md:col-span-2">
@@ -112,10 +96,10 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-section-sm flex flex-col gap-2 border-t border-line-inverse pt-6 text-caption text-inverse-muted sm:flex-row sm:justify-between">
-          <p>
-            © {year} {SITE.company}. Të gjitha të drejtat e rezervuara.
+          <p>{SITE.company} është ndërtues fiktiv; të gjitha të dhënat në këtë faqe janë shembull.</p>
+          <p className="tabular-nums">
+            {DEMO.badge} · {year}
           </p>
-          <p>Pamjet e paraqitura janë ilustruese.</p>
         </div>
       </div>
     </footer>

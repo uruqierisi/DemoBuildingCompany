@@ -1,5 +1,5 @@
 {
-  "name": "pozhegu-garden-buildings",
+  "name": "elevateurbox-demo-rezidenca-arrita",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -12,8 +12,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "assets:images": "node scripts/optimize-renders.mjs",
-    "assets:images:fetch": "node scripts/optimize-renders.mjs --fetch",
-    "assets:icons": "node scripts/generate-icons.mjs"
+    "assets:brand": "node scripts/generate-brand.mjs"
   },
   "dependencies": {
     "@fontsource-variable/dm-sans": "^5.3.0",

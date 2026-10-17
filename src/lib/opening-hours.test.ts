@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { formatOpeningHours, toOpeningHoursSpecification, type WeeklyHours } from './opening-hours';
+import { formatOpeningHours, type WeeklyHours } from './opening-hours';
 
 const WEEKDAY = { opens: '09:00', closes: '17:00' } as const;
 const office: WeeklyHours = {
@@ -29,20 +29,6 @@ describe('formatOpeningHours', () => {
       'E enjte – e premte',
       'E shtunë',
       'E diel',
-    ]);
-  });
-});
-
-describe('toOpeningHoursSpecification', () => {
-  it('lists open days by hours and leaves closed days out', () => {
-    expect(toOpeningHoursSpecification(office)).toEqual([
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-        opens: '09:00',
-        closes: '17:00',
-      },
-      { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Saturday'], opens: '09:00', closes: '15:00' },
     ]);
   });
 });

@@ -56,7 +56,7 @@ function BuildingView({ project, building }: BuildingViewProps) {
 
   usePageMeta({
     title: `${building.name} · ${project.name}`,
-    description: `${formatForSaleCount(facts.forSale.length)} në ${building.name}, ${project.name} nga Pozhegu Brothers.`,
+    description: `${formatForSaleCount(facts.forSale.length)} në ${building.name}, ${project.name}.`,
   });
 
   return (

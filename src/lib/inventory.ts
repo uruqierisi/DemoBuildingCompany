@@ -166,10 +166,7 @@ export function deriveAreaRange(buildings: readonly Building[]): { min: number; 
   return { min: Math.min(...areas), max: Math.max(...areas) };
 }
 
-/**
- * Headline counters computed from the inventory, so they always match the data. The data lists only
- * units for sale, so no figure claims to be a building's total number of apartments.
- */
+/** What is for sale, computed from the inventory so the counters always match the data. */
 export function deriveInventoryStats(buildings: readonly Building[]): Stat[] {
   const forSale = buildings.flatMap(getApartmentDetails).filter((apartment) => apartment.status === 'available');
   const areaForSale = forSale.reduce((sum, apartment) => sum + apartment.unitType.areaM2, 0);
@@ -178,5 +175,20 @@ export function deriveInventoryStats(buildings: readonly Building[]): Stat[] {
     { id: 'buildingsForSale', value: buildingsForSale.length, label: 'Objekte me banesa në shitje' },
     { id: 'forSale', value: forSale.length, label: 'Banesa në shitje' },
     { id: 'areaForSale', value: Math.round(areaForSale), unit: 'm²', label: 'Sipërfaqe në shitje' },
+  ];
+}
+
+/**
+ * The project in figures: buildings, every apartment whatever its status, their combined area and how
+ * many are sold. Shown beside the for-sale counters, so it follows the demo admin's status changes.
+ */
+export function deriveProjectTotals(buildings: readonly Building[]): Stat[] {
+  const apartments = buildings.flatMap(getApartmentDetails);
+  const area = apartments.reduce((sum, apartment) => sum + apartment.unitType.areaM2, 0);
+  return [
+    { id: 'buildings', value: buildings.length, label: 'Objekte' },
+    { id: 'apartments', value: apartments.length, label: 'Banesa' },
+    { id: 'area', value: Math.round(area), unit: 'm²', label: 'Sipërfaqe banimi' },
+    { id: 'sold', value: countByStatus(apartments).sold, label: 'Banesa të shitura' },
   ];
 }

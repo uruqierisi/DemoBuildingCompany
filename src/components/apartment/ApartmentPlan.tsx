@@ -12,7 +12,7 @@ interface ApartmentPlanProps {
   readonly subject: LeadSubject;
 }
 
-/** The published floor plan (zoomable), or a request block when Pozhegu has not published one. */
+/** The floor plan drawing (zoomable), or a request block when the unit type has none. */
 export function ApartmentPlan({ apartment, subject }: ApartmentPlanProps) {
   const { plan } = apartment.unitType;
   return plan ? (
@@ -67,7 +67,7 @@ function PlanFigure({ apartment, plan }: { readonly apartment: ApartmentDetails;
         </button>
       </div>
       <figcaption className="mt-3 text-small text-ink-muted">
-        {apartment.unitType.name}. Planimetria e publikuar nga Pozhegu Brothers; përmasat janë në centimetra.
+        {apartment.unitType.name}. Planimetri ilustruese; përmasat janë në centimetra.
       </figcaption>
       {isOpen ? <PlanViewer image={plan.image} alt={alt} title={title} onClose={handleClose} /> : null}
     </figure>

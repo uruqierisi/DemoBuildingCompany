@@ -1,6 +1,7 @@
 import { useCallback, useRef, useState } from 'react';
 import { Outlet, ScrollRestoration, useLocation, useMatches } from 'react-router';
 import { ContactDialogProvider } from '@/components/contact/ContactDialogProvider';
+import { DemoBadge } from '@/components/demo/DemoBadge';
 import { MobileContactBar } from '@/components/layout/MobileContactBar';
 import { SiteFooter } from '@/components/layout/SiteFooter';
 import { SiteHeader } from '@/components/layout/SiteHeader';
@@ -50,6 +51,7 @@ export function RootLayout() {
           <SiteFooter />
         </div>
         <MobileContactBar isHidden={isMenuOpen} />
+        <DemoBadge isHidden={isMenuOpen} />
         <ScrollRestoration />
       </div>
     </ContactDialogProvider>

@@ -1,12 +1,13 @@
 import { useEffect, useId, useRef, useState, type FormEvent } from 'react';
 import { buttonArrowClasses, buttonClasses } from '@/components/ui/button-styles';
 import { Icon } from '@/components/ui/Icon';
-import { whatsappHref } from '@/lib/whatsapp';
-import { SalesPhoneLine } from './OfficeDetails';
+import { DEMO } from '@/config/site';
 import { cn } from '@/lib/cn';
 import { formatApartmentCode } from '@/lib/format';
 import { buildWhatsappMessage, describeSubject, type LeadSubject } from '@/lib/lead-message';
 import { parsePhone, PHONE_ERROR_MESSAGES } from '@/lib/phone';
+import { whatsappHref } from '@/lib/whatsapp';
+import { SalesPhoneLine } from './OfficeDetails';
 
 /** Simulated send time: there is no backend in the demo, the form only shows its success state. */
 const SIMULATED_SEND_MS = 700;
@@ -162,10 +163,13 @@ export function LeadForm({ subject, initialMessage = '', onDone }: LeadFormProps
         />
       </div>
 
-      <button type="submit" disabled={isSending} className={buttonClasses('primary', 'lg', 'w-full sm:w-auto')}>
-        {isSending ? 'Duke dërguar…' : 'Dërgo kërkesën'}
-        {isSending ? null : <Icon name="arrow-right" className={buttonArrowClasses} />}
-      </button>
+      <div>
+        <button type="submit" disabled={isSending} className={buttonClasses('primary', 'lg', 'w-full sm:w-auto')}>
+          {isSending ? 'Duke dërguar…' : 'Dërgo kërkesën'}
+          {isSending ? null : <Icon name="arrow-right" className={buttonArrowClasses} />}
+        </button>
+        <p className="mt-3 text-caption text-ink-muted">Demo: të dhënat nuk dërgohen dhe nuk ruhen askund.</p>
+      </div>
     </form>
   );
 }
@@ -196,8 +200,12 @@ function LeadSuccess({ lead, subject, onDone }: LeadSuccessProps) {
         Faleminderit, {firstName}.
       </p>
       <p className="mt-3 max-w-[44ch] text-ink-muted">
-        Kërkesa juaj{apartmentId ? ` për banesën ${formatApartmentCode(apartmentId)}` : ''} u dërgua. Zyra e shitjes do
-        t’ju kontaktojë në <span className="whitespace-nowrap text-ink tabular-nums">{lead.phoneDisplay}</span>.
+        Kërkesa juaj{apartmentId ? ` për banesën ${formatApartmentCode(apartmentId)}` : ''} është gati. Në një faqe të
+        vërtetë, zyra e shitjes do t’ju kontaktonte në{' '}
+        <span className="whitespace-nowrap text-ink tabular-nums">{lead.phoneDisplay}</span>.
+      </p>
+      <p className="mt-3 max-w-[44ch] text-small text-ink-muted">
+        {DEMO.notice} Asgjë nuk u dërgua dhe asgjë nuk u ruajt.
       </p>
       <SalesPhoneLine label="Nëse ju ngutet, telefononi zyrën e shitjes" className="mt-3 text-small text-ink-muted" />
 

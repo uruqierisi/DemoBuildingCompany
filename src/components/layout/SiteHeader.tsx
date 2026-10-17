@@ -2,8 +2,8 @@ import { useEffect, useRef } from 'react';
 import { Link } from 'react-router';
 import { buttonClasses } from '@/components/ui/button-styles';
 import { Icon } from '@/components/ui/Icon';
-import { CONTACT, CONTACT_DETAILS_CONFIRMED, phoneHref } from '@/config/contact';
-import { NAV_ITEMS } from '@/config/site';
+import { CONTACT_DETAILS, phoneHref } from '@/config/contact';
+import { NAV_ITEMS, SITE } from '@/config/site';
 import { cn } from '@/lib/cn';
 import { Logo } from './Logo';
 import { MOBILE_MENU_ID, MobileMenu } from './MobileMenu';
@@ -85,9 +85,9 @@ export function SiteHeader({ overlaysHero, isScrolled, isMenuOpen, onMenuToggle,
         <Link
           to="/"
           className="flex min-h-11 shrink-0 items-center rounded-xs"
-          aria-label="Pozhegu Brothers — faqja kryesore"
+          aria-label={`${SITE.company} — faqja kryesore`}
         >
-          <Logo onImage={isOverHero} />
+          <Logo isInverse={isInverse} />
         </Link>
 
         <nav aria-label="Navigimi kryesor" className="hidden lg:block">
@@ -103,9 +103,9 @@ export function SiteHeader({ overlaysHero, isScrolled, isMenuOpen, onMenuToggle,
         </nav>
 
         <div className="hidden items-center gap-8 lg:flex">
-          {CONTACT_DETAILS_CONFIRMED ? (
-            <a href={phoneHref} className={cn(NAV_LINK, 'hidden tabular-nums xl:block')}>
-              {CONTACT.phoneDisplay}
+          {CONTACT_DETAILS ? (
+            <a href={phoneHref(CONTACT_DETAILS)} className={cn(NAV_LINK, 'hidden tabular-nums xl:block')}>
+              {CONTACT_DETAILS.phoneDisplay}
             </a>
           ) : null}
           <SectionLink

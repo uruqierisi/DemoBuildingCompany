@@ -28,7 +28,7 @@ interface AssignPanelProps {
 
 /**
  * Chooses what the closed polygon belongs to: a building (overview), a listed apartment, an existing
- * sold unit, or a new sold unit on a chosen floor, whose id is generated (e.g. "L9-S-0301").
+ * sold unit, or a new sold unit on a chosen floor, whose id is generated (e.g. "B1-S-0301").
  * Render with `key={image.key}` so the selection resets when the image changes.
  */
 export function AssignPanel({ image, traced, isClosed, onAssign }: AssignPanelProps) {

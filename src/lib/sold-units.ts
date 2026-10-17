@@ -1,13 +1,13 @@
 import type { Floor } from '@/data/types';
 
-/** "objekti-l9" → "l9". */
+/** "objekti-b1" → "b1". */
 export function buildingCode(buildingId: string): string {
   return buildingId.replace(/^objekti-/, '');
 }
 
 const pad2 = (value: number) => String(value).padStart(2, '0');
 
-/** Sold unit id: building code, "s", two-digit floor, two-digit sequence on that floor ("l9-s-0301"). */
+/** Sold unit id: building code, "s", two-digit floor, two-digit sequence on that floor ("b1-s-0301"). */
 export function soldUnitId(buildingId: string, floor: Floor, sequence: number): string {
   return `${buildingCode(buildingId)}-s-${pad2(floor)}${pad2(sequence)}`;
 }

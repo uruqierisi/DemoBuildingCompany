@@ -1,87 +1,62 @@
-import type { WeeklyHours } from '../lib/opening-hours.ts';
-import { parsePhone } from '../lib/phone.ts';
+import type { WeeklyHours } from '@/lib/opening-hours';
+import { parsePhone } from '@/lib/phone';
 
-/**
- * Sales contact details: the one file to edit when they change.
- *
- * Plain data and pure helpers with relative imports only: the build also reads this file to write
- * the JSON-LD into index.html (build/site-meta-plugin.ts). The WhatsApp number that depends on
- * .env lives in src/lib/whatsapp.ts.
- */
-
-/**
- * True once Pozhegu's real contacts are set below. While false, no phone number, e-mail or opening
- * hours are shown anywhere: every contact entry point opens the contact form instead.
- */
-export const CONTACT_DETAILS_CONFIRMED = true;
-
-/** Sales phone in any format parsePhone accepts. Confirmed from Pozhegu's Google Business listing. */
-const SALES_PHONE = '+383 45 543 222';
-
-/**
- * WhatsApp number for the lead form's "Dërgo edhe në WhatsApp" hand-off and the WhatsApp links,
- * e.g. '+383 44 123 456'. Leave empty to use VITE_WHATSAPP_NUMBER (.env.local or the host's
- * environment), which keeps a personal demo number out of the source; when both are empty, every
- * WhatsApp action is hidden.
- */
-export const WHATSAPP_NUMBER = '';
-
-function requirePhone(value: string): { e164: string; display: string } {
-  const parsed = parsePhone(value);
-  if (!parsed.ok) throw new Error(`Invalid SALES_PHONE in config/contact.ts: "${value}" (${parsed.error}).`);
-  return parsed;
+/** Sales office as shown in the footer and the contact section. */
+export interface SalesOffice {
+  readonly name: string;
+  readonly street: string;
+  readonly postalCode: string;
+  readonly city: string;
+  readonly country: string;
+  readonly hours: WeeklyHours;
 }
 
-const salesPhone = requirePhone(SALES_PHONE);
-
-const OFFICE_WEEKDAY = { opens: '09:00', closes: '17:00' } as const;
-
-export const CONTACT = {
-  company: 'Pozhegu Brothers',
-  /** The company's own site, used as the business URL in structured data. */
-  website: 'https://pozhegubrothers.com/',
+export interface ContactDetails {
   /** E.164 format, used for tel: links. */
-  phone: salesPhone.e164,
-  phoneDisplay: salesPhone.display,
-  email: 'sales@pozhegubrothers.com',
-  office: {
-    name: 'Zyra e shitjes',
-    street: 'Skender Çeku, Blloku C11/A3',
-    postalCode: '10000',
-    city: 'Prishtinë',
-    /** ISO 3166 code Google and schema.org use for Kosovo. */
-    countryCode: 'XK',
-    country: 'Kosovë',
-    hours: {
-      monday: OFFICE_WEEKDAY,
-      tuesday: OFFICE_WEEKDAY,
-      wednesday: OFFICE_WEEKDAY,
-      thursday: OFFICE_WEEKDAY,
-      friday: OFFICE_WEEKDAY,
-      saturday: { opens: '09:00', closes: '15:00' },
-      sunday: null,
-    } satisfies WeeklyHours,
-  },
-  /** Official profiles, as linked from the pozhegubrothers.com footer. */
-  social: {
-    facebook: 'https://www.facebook.com/pozhegubrothers/',
-    instagram: 'https://www.instagram.com/pozhegubrothers/',
-  },
-} as const;
-
-/** Address as shown: street, then "Prishtinë 10000". */
-export const officeAddressLines = [
-  CONTACT.office.street,
-  `${CONTACT.office.city} ${CONTACT.office.postalCode}`,
-] as const;
-
-export const phoneHref = `tel:${CONTACT.phone}`;
-
-export function emailHref(subject?: string): string {
-  return subject ? `mailto:${CONTACT.email}?subject=${encodeURIComponent(subject)}` : `mailto:${CONTACT.email}`;
+  readonly phone: string;
+  readonly phoneDisplay: string;
+  readonly email: string;
+  readonly office: SalesOffice;
 }
 
-/** Google Maps search for the office address; opens the app on phones. */
-export const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-  [...officeAddressLines, CONTACT.office.country].join(', '),
-)}`;
+export interface ContactDetailsInput {
+  /** Any format parsePhone accepts, e.g. "+383 4X XXX XXX". */
+  readonly phone: string;
+  readonly email: string;
+  readonly office: SalesOffice;
+}
+
+/** Validates real contact details once, at startup: an invalid phone number fails loudly. */
+export function createContactDetails({ phone, email, office }: ContactDetailsInput): ContactDetails {
+  const parsed = parsePhone(phone);
+  if (!parsed.ok) throw new Error(`Invalid sales phone in config/contact.ts: "${phone}" (${parsed.error}).`);
+  return { phone: parsed.e164, phoneDisplay: parsed.display, email, office };
+}
+
+/**
+ * Sales contact details: the one place to set them.
+ *
+ * The portfolio demo is fictional and has none, on purpose: no phone number, e-mail, address or
+ * opening hours appear anywhere, every contact entry point opens the lead form, and the site says it
+ * is a demo by ElevateUrBox. A real deployment sets them with createContactDetails({ … }).
+ */
+export const CONTACT_DETAILS: ContactDetails | null = null;
+
+export function phoneHref(details: ContactDetails): string {
+  return `tel:${details.phone}`;
+}
+
+export function emailHref(details: ContactDetails, subject?: string): string {
+  return subject ? `mailto:${details.email}?subject=${encodeURIComponent(subject)}` : `mailto:${details.email}`;
+}
+
+/** Address as shown: street, then city and postal code. */
+export function officeAddressLines({ office }: ContactDetails): readonly string[] {
+  return [office.street, `${office.city} ${office.postalCode}`];
+}
+
+/** Map search for the office address; opens the maps app on phones. */
+export function mapsHref(details: ContactDetails): string {
+  const query = [...officeAddressLines(details), details.office.country].join(', ');
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+}

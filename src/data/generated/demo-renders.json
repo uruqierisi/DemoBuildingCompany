@@ -1,0 +1,70 @@
+{
+  "overview": {
+    "original": "aerial.png",
+    "width": 3360,
+    "height": 1888,
+    "variants": [
+      {
+        "width": 640,
+        "avif": "/renders/demo/optimized/overview-640.avif",
+        "webp": "/renders/demo/optimized/overview-640.webp",
+        "jpeg": "/renders/demo/optimized/overview-640.jpg"
+      },
+      {
+        "width": 1024,
+        "avif": "/renders/demo/optimized/overview-1024.avif",
+        "webp": "/renders/demo/optimized/overview-1024.webp",
+        "jpeg": "/renders/demo/optimized/overview-1024.jpg"
+      },
+      {
+        "width": 1600,
+        "avif": "/renders/demo/optimized/overview-1600.avif",
+        "webp": "/renders/demo/optimized/overview-1600.webp",
+        "jpeg": "/renders/demo/optimized/overview-1600.jpg"
+      },
+      {
+        "width": 2400,
+        "avif": "/renders/demo/optimized/overview-2400.avif",
+        "webp": "/renders/demo/optimized/overview-2400.webp",
+        "jpeg": "/renders/demo/optimized/overview-2400.jpg"
+      },
+      {
+        "width": 3360,
+        "avif": "/renders/demo/optimized/overview-3360.avif",
+        "webp": "/renders/demo/optimized/overview-3360.webp",
+        "jpeg": "/renders/demo/optimized/overview-3360.jpg"
+      }
+    ]
+  },
+  "objekti-a1": {
+    "original": "facade.png",
+    "width": 2272,
+    "height": 2816,
+    "variants": [
+      {
+        "width": 640,
+        "avif": "/renders/demo/optimized/objekti-a1-640.avif",
+        "webp": "/renders/demo/optimized/objekti-a1-640.webp",
+        "jpeg": "/renders/demo/optimized/objekti-a1-640.jpg"
+      },
+      {
+        "width": 1024,
+        "avif": "/renders/demo/optimized/objekti-a1-1024.avif",
+        "webp": "/renders/demo/optimized/objekti-a1-1024.webp",
+        "jpeg": "/renders/demo/optimized/objekti-a1-1024.jpg"
+      },
+      {
+        "width": 1600,
+        "avif": "/renders/demo/optimized/objekti-a1-1600.avif",
+        "webp": "/renders/demo/optimized/objekti-a1-1600.webp",
+        "jpeg": "/renders/demo/optimized/objekti-a1-1600.jpg"
+      },
+      {
+        "width": 2272,
+        "avif": "/renders/demo/optimized/objekti-a1-2272.avif",
+        "webp": "/renders/demo/optimized/objekti-a1-2272.webp",
+        "jpeg": "/renders/demo/optimized/objekti-a1-2272.jpg"
+      }
+    ]
+  }
+}

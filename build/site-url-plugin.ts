@@ -10,16 +10,15 @@ function withoutTrailingSlash(url: string): string {
 
 /**
  * The site's absolute origin, without a trailing slash. Resolution order:
- *   1. SITE_URL environment variable (e.g. https://pozhegu.elevateurbox.com, set in netlify.toml)
- *   2. URL, set automatically on Netlify builds (the site's primary URL)
- *   3. VERCEL_PROJECT_PRODUCTION_URL, set automatically on Vercel builds
- * Empty when none is set.
+ *   1. SITE_URL environment variable (https://demo.elevateurbox.com for the demo, set on Vercel)
+ *   2. VERCEL_PROJECT_PRODUCTION_URL, set automatically on Vercel builds
+ * Empty when neither is set.
  */
 export function configuredSiteUrl(): string {
   const fromVercel = process.env.VERCEL_PROJECT_PRODUCTION_URL
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
     : '';
-  return withoutTrailingSlash(process.env.SITE_URL || process.env.URL || fromVercel);
+  return withoutTrailingSlash(process.env.SITE_URL || fromVercel);
 }
 
 /** configuredSiteUrl(), or http://localhost:5180 when none is set. */
@@ -36,7 +35,7 @@ export function siteUrl(): Plugin {
   let resolved = FALLBACK_URL;
 
   return {
-    name: 'pozhegu:site-url',
+    name: 'elevateurbox-demo:site-url',
     configResolved(config) {
       const configured = configuredSiteUrl();
       resolved = configured || FALLBACK_URL;

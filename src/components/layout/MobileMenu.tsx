@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { ContactButton } from '@/components/contact/ContactButton';
 import { EmailAddress } from '@/components/contact/EmailAddress';
-import { CONTACT, CONTACT_DETAILS_CONFIRMED, emailHref, phoneHref } from '@/config/contact';
+import { CONTACT_DETAILS, emailHref, phoneHref } from '@/config/contact';
 import { whatsappHref } from '@/lib/whatsapp';
 import { NAV_ITEMS } from '@/config/site';
 import { cn } from '@/lib/cn';
@@ -68,12 +68,12 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           </ol>
         </nav>
 
-        {CONTACT_DETAILS_CONFIRMED ? (
+        {CONTACT_DETAILS ? (
           <div className="mt-auto grid gap-8 pt-14 sm:grid-cols-2">
             <div>
               <p className="eyebrow text-inverse-muted">Telefon</p>
-              <a href={phoneHref} className={cn(CONTACT_LINK, 'mt-3 tabular-nums')}>
-                {CONTACT.phoneDisplay}
+              <a href={phoneHref(CONTACT_DETAILS)} className={cn(CONTACT_LINK, 'mt-3 tabular-nums')}>
+                {CONTACT_DETAILS.phoneDisplay}
               </a>
               {whatsapp ? (
                 <a href={whatsapp} target="_blank" rel="noopener noreferrer" className={CONTACT_LINK}>
@@ -83,8 +83,8 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             </div>
             <div>
               <p className="eyebrow text-inverse-muted">E-mail</p>
-              <a href={emailHref()} className={cn(CONTACT_LINK, 'mt-3 break-words')}>
-                <EmailAddress email={CONTACT.email} />
+              <a href={emailHref(CONTACT_DETAILS)} className={cn(CONTACT_LINK, 'mt-3 break-words')}>
+                <EmailAddress email={CONTACT_DETAILS.email} />
               </a>
             </div>
           </div>

@@ -3,7 +3,7 @@ import { useLocation } from 'react-router';
 import { SITE } from '@/config/site';
 
 interface PageMeta {
-  /** Page-specific title; the company name is appended. Omit for the home page. */
+  /** Page-specific title; the project name is appended. Omit for the home page. */
   readonly title?: string;
   readonly description?: string;
 }
@@ -25,7 +25,7 @@ export function usePageMeta({ title, description }: PageMeta): void {
   }, [pathname]);
 
   useEffect(() => {
-    document.title = title ? `${title} — ${SITE.titleSuffix}` : `Garden Buildings — ${SITE.titleSuffix}`;
+    document.title = title ? `${title} — ${SITE.titleSuffix}` : `${SITE.titleSuffix} — ${SITE.company}`;
   }, [title]);
 
   useEffect(() => {

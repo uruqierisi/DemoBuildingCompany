@@ -7,7 +7,7 @@ import { NO_OVERRIDES, parseStatusOverrides, withStatus, type StatusOverrides } 
  * useSyncExternalStore: a change applies to the whole site at once, and to other tabs of the same
  * browser via the storage event. Only active in demo builds; otherwise the data is used as published.
  */
-const STORAGE_KEY = 'pozhegu-demo:apartment-status:v1';
+const STORAGE_KEY = 'elevateurbox-demo:apartment-status:v1';
 
 let current: StatusOverrides | null = null;
 const listeners = new Set<() => void>();

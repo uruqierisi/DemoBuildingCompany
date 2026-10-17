@@ -1,5 +1,5 @@
 /**
- * An e-mail address that wraps only after the "@" ("sales@" / "pozhegubrothers.com") when it does
+ * An e-mail address that wraps only after the "@" ("shitja@" / "example.com") when it does
  * not fit on one line, instead of breaking mid-word at the screen edge.
  */
 export function EmailAddress({ email }: { readonly email: string }) {

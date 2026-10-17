@@ -1,5 +1,5 @@
 /**
- * Domain model shared by every Pozhegu project.
+ * Domain model shared by every project on the site.
  * Hierarchy: Project → Building[] → UnitType[] + Apartment[] (apartments reference their unit type).
  */
 
@@ -9,7 +9,7 @@ export type ApartmentStatus = 'available' | 'reserved' | 'sold';
 export type Floor = number;
 
 /**
- * Room category as Pozhegu groups its units: studio ("Garsonierë"), n bedrooms ("n dhomëshe")
+ * Room category as the Kosovo market groups units: studio ("Garsonierë"), n bedrooms ("n dhomëshe")
  * or penthouse. Penthouses are a category, not a floor: they sit on numbered upper floors.
  */
 export type RoomCategory =
@@ -58,7 +58,7 @@ export interface ProjectIntro {
   readonly paragraphs: readonly string[];
 }
 
-/** A published floor plan and what it shows, for its alt text. */
+/** A floor plan drawing and what it shows, for its alt text. */
 export interface FloorPlan {
   readonly image: RenderImage;
   /** Rooms as drawn on the plan, e.g. "dy dhoma gjumi, … dhe ballkon". */
@@ -66,21 +66,19 @@ export interface FloorPlan {
 }
 
 export interface UnitType {
-  /** Unique within a building, derived from category and area, e.g. "tipi-96-26". */
+  /** Unique within a building, derived from category and area, e.g. "tipi-78-40". */
   readonly id: string;
-  /** Display name, e.g. "Tipi 96,26 m²" or "Penthouse 139,44 m²". */
+  /** Display name, e.g. "Tipi 78,40 m²" or "Penthouse 142,60 m²". */
   readonly name: string;
   readonly category: RoomCategory;
   readonly areaM2: number;
-  /** Floor plan, when Pozhegu has published one. */
+  /** Floor plan drawing, when one exists. Without it the apartment page offers to request the plan. */
   readonly plan?: FloorPlan;
-  /** Pozhegu's page for this unit type. */
-  readonly source?: string;
 }
 
 /**
- * An apartment Pozhegu lists for sale, with its unit type. Every listed apartment is currently
- * "available"; "reserved" and "sold" are kept for when a live sales feed exists.
+ * An apartment with its sales status. Sold apartments keep their page (it says they are sold) but
+ * leave the lists and every for-sale count.
  */
 export interface Apartment {
   /** Unique across the project; used in the URL. */
@@ -98,7 +96,7 @@ export interface Apartment {
  * area or details: it never appears in the apartment list and has no page of its own.
  */
 export interface SoldUnit {
-  /** e.g. "l9-s-0301": building, "s", two-digit floor, two-digit sequence on that floor. */
+  /** e.g. "a1-s-0301": building, "s", two-digit floor, two-digit sequence on that floor. */
   readonly id: string;
   readonly buildingId: string;
   readonly floor: Floor;
@@ -107,7 +105,7 @@ export interface SoldUnit {
 }
 
 export interface Building {
-  /** URL slug, e.g. "objekti-h4". */
+  /** URL slug, e.g. "objekti-a1". */
   readonly id: string;
   readonly name: string;
   /** SVG path in the overview render's pixel space. Absent if not traced or not visible on it. */
@@ -115,9 +113,9 @@ export interface Building {
   /** The building's own render. Absent when none exists: the building page is then text-led. */
   readonly render?: RenderImage;
   readonly unitTypes: readonly UnitType[];
-  /** Apartments listed for sale. */
+  /** Every apartment of the building, whatever its status. */
   readonly apartments: readonly Apartment[];
-  /** Sold units traced on the building render (illustrative until a live sales feed exists). */
+  /** Sold units traced on the building render that have no apartment entry (no unit type, no page). */
   readonly soldUnits: readonly SoldUnit[];
 }
 
@@ -131,16 +129,16 @@ export interface Project {
   /** URL-safe slug. */
   readonly id: string;
   readonly name: string;
-  readonly location: string;
   readonly tagline: string;
   readonly description: string;
   readonly intro: ProjectIntro;
-  readonly heroImage: RenderImage;
+  /** Full-bleed hero render. Absent: the hero is typographic, on ink. */
+  readonly heroImage?: RenderImage;
   /** Supporting renders for the project section. */
   readonly gallery: readonly ProjectImage[];
   /** Render showing several buildings, used by the building selector. Absent: list only. */
   readonly overview?: ProjectOverview;
-  /** Project-level counters, derived from the inventory. Company-wide figures live in config/company.ts. */
+  /** Project-level counters of what is for sale, derived from the inventory. */
   readonly stats: readonly Stat[];
   readonly buildings: readonly Building[];
 }

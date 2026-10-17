@@ -25,7 +25,7 @@ export function ApartmentHeader({ projectName, building, apartment }: ApartmentH
   const isSold = apartment.status === 'sold';
   const typeName = distinctUnitTypeName(unitType);
   const facts = [
-    // Only when the type has its own name; "Tipi 96,26 m²" would repeat the area below.
+    // Only when the type has its own name; "Tipi 78,40 m²" would repeat the area below.
     ...(typeName ? [{ label: 'Tipi', value: typeName }] : []),
     { label: 'Sipërfaqja', value: formatArea(unitType.areaM2) },
     { label: 'Struktura', value: formatRoomCategory(unitType.category) },

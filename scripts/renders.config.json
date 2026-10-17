@@ -1,94 +1,10 @@
 {
-  "$comment": "Source of truth for generated images. Originals live in public/renders/<project>/original/ (git-ignored); `sources` records where each was downloaded so they can be re-fetched. Run: node scripts/optimize-renders.mjs [--fetch]",
-  "project": "garden-buildings",
-  "widths": [
-    640,
-    1024,
-    1600,
-    2400,
-    3840
-  ],
-  "sources": {
-    "F11.jpg": "https://pozhegubrothers.com/wp-content/uploads/2025/01/F11.jpg",
-    "F13.jpg": "https://pozhegubrothers.com/wp-content/uploads/2025/01/F13.jpg",
-    "F18.jpg": "https://pozhegubrothers.com/wp-content/uploads/2025/01/F18.jpg",
-    "F20.jpg": "https://pozhegubrothers.com/wp-content/uploads/2025/01/F20.jpg",
-    "f07.jpg": "https://pozhegubrothers.com/wp-content/uploads/2024/05/f07.jpg",
-    "f06_2.jpg": "https://pozhegubrothers.com/wp-content/uploads/2024/05/f06_2.jpg",
-    "f03.jpg": "https://pozhegubrothers.com/wp-content/uploads/2025/04/f03.jpg",
-    "F19.jpg": "https://pozhegubrothers.com/wp-content/uploads/2024/04/F19.jpg",
-    "F14.jpg": "https://pozhegubrothers.com/wp-content/uploads/2024/05/F14.jpg",
-    "F12.jpg": "https://pozhegubrothers.com/wp-content/uploads/2024/04/F12.jpg",
-    "Garden-Buildings-1.jpg": "https://pozhegubrothers.com/wp-content/uploads/2025/12/Garden-Buildings-1.jpg",
-    "featureimage-scaled-1.webp": "https://pozhegubrothers.com/wp-content/uploads/2025/12/featureimage-scaled-1.webp",
-    "f03_2.jpg": "https://pozhegubrothers.com/wp-content/uploads/2025/02/f03_2.jpg",
-    "f04-1.jpg": "https://pozhegubrothers.com/wp-content/uploads/2025/02/f04-1.jpg",
-    "f01-1.jpg": "https://pozhegubrothers.com/wp-content/uploads/2025/02/f01-1.jpg",
-    "f08-1.jpg": "https://pozhegubrothers.com/wp-content/uploads/2025/02/f08-1.jpg",
-    "L4-1-.jpg": "https://pozhegubrothers.com/wp-content/uploads/2025/02/L4-1-.jpg",
-    "L4-4.jpg": "https://pozhegubrothers.com/wp-content/uploads/2025/02/L4-4.jpg",
-    "L4-5.jpg": "https://pozhegubrothers.com/wp-content/uploads/2025/02/L4-5.jpg",
-    "l4.jpg": "https://pozhegubrothers.com/wp-content/uploads/2025/02/l4.jpg",
-    "F16.jpg": "https://pozhegubrothers.com/wp-content/uploads/2025/02/F16.jpg",
-    "plans/Banesa-96.26m²-Kati-3.jpg": "https://pozhegubrothers.com/wp-content/uploads/2025/05/Banesa-96.26m²-Kati-3.jpg",
-    "plans/Banesa-89.01m²-Kati-Perdhes-3.jpg": "https://pozhegubrothers.com/wp-content/uploads/2024/04/Banesa-89.01m²-Kati-Perdhes-3.jpg",
-    "plans/Banesa-139.44m²-Kati-9-1.jpg": "https://pozhegubrothers.com/wp-content/uploads/2024/04/Banesa-139.44m²-Kati-9-1.jpg"
-  },
+  "$comment": "Source of truth for generated images. Put untouched originals in public/renders/<project>/original/ (git-ignored), list them under renders (name → original file, or { original, crop }) and plans, then run: npm run assets:images",
+  "project": "demo",
+  "widths": [640, 1024, 1600, 2400, 3840],
   "renders": {
-    "hero": "F11.jpg",
-    "overview": "F18.jpg",
-    "gallery-terraces": "F20.jpg",
-    "gallery-street": "F19.jpg",
-    "objekti-h2": "f07.jpg",
-    "objekti-h3": "f06_2.jpg",
-    "objekti-h4": "f03.jpg",
-    "objekti-l4": "l4.jpg",
-    "objekti-l7": "F13.jpg",
-    "objekti-l8": "F14.jpg",
-    "objekti-l9": {
-      "$comment": "L9 only: F12 also shows L10 on the right. Tight frame at the neighbouring façades; full height. Hotspot coordinates are in this crop's pixels.",
-      "original": "F12.jpg",
-      "crop": {
-        "left": 48,
-        "top": 0,
-        "width": 1536,
-        "height": 2160
-      }
-    }
+    "overview": "aerial.png",
+    "objekti-a1": "facade.png"
   },
-  "plans": {
-    "plan-l9-tipi-96-26": {
-      "original": "plans/Banesa-96.26m²-Kati-3.jpg",
-      "crop": {
-        "left": 1783,
-        "top": 38,
-        "width": 1163,
-        "height": 1575
-      }
-    },
-    "plan-l9-tipi-89-01": {
-      "original": "plans/Banesa-89.01m²-Kati-Perdhes-3.jpg",
-      "crop": {
-        "left": 1858,
-        "top": 38,
-        "width": 1092,
-        "height": 1575
-      }
-    },
-    "plan-l9-penthouse-139-44": {
-      "original": "plans/Banesa-139.44m²-Kati-9-1.jpg",
-      "crop": {
-        "left": 1299,
-        "top": 311,
-        "width": 2592,
-        "height": 1173
-      }
-    }
-  },
-  "og": {
-    "original": "F18.jpg",
-    "output": "public/og/garden-buildings.jpg",
-    "width": 1200,
-    "height": 630
-  }
+  "plans": {}
 }

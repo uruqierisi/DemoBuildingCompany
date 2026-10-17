@@ -1,6 +1,6 @@
 import { Icon } from '@/components/ui/Icon';
 import { ContactButton } from '@/components/contact/ContactButton';
-import { CONTACT_DETAILS_CONFIRMED, phoneHref } from '@/config/contact';
+import { CONTACT_DETAILS, phoneHref } from '@/config/contact';
 import { useIsEditingText } from '@/hooks/useIsEditingText';
 import { cn } from '@/lib/cn';
 import { whatsappHref } from '@/lib/whatsapp';
@@ -26,7 +26,7 @@ export function MobileContactBar({ isHidden }: MobileContactBarProps) {
     isEditing && 'invisible translate-y-full',
   );
 
-  if (!CONTACT_DETAILS_CONFIRMED) {
+  if (!CONTACT_DETAILS) {
     return (
       <div data-fixed-edge="bottom" inert={isHidden || isEditing} className={barClasses}>
         <ContactButton className="h-14 w-full rounded-none" />
@@ -35,7 +35,7 @@ export function MobileContactBar({ isHidden }: MobileContactBarProps) {
   }
   return (
     <div data-fixed-edge="bottom" inert={isHidden || isEditing} className={cn(barClasses, 'grid grid-cols-2')}>
-      <a href={phoneHref} className={`${ACTION} text-white hover:bg-ink-soft`}>
+      <a href={phoneHref(CONTACT_DETAILS)} className={`${ACTION} text-white hover:bg-ink-soft`}>
         <Icon name="phone" />
         Telefono
       </a>

@@ -3,7 +3,7 @@ import { isRouteErrorResponse, useRouteError } from 'react-router';
 import { StatusMessage } from '@/components/feedback/StatusMessage';
 import { buttonClasses } from '@/components/ui/button-styles';
 import { ButtonLink } from '@/components/ui/ButtonLink';
-import { CONTACT, CONTACT_DETAILS_CONFIRMED } from '@/config/contact';
+import { CONTACT_DETAILS } from '@/config/contact';
 import { usePageMeta } from '@/hooks/usePageMeta';
 import { NotFoundPage } from './NotFoundPage';
 
@@ -27,7 +27,7 @@ function UnexpectedError({ error }: { readonly error: unknown }) {
     <StatusMessage
       eyebrow="Gabim"
       title="Diçka nuk funksionoi"
-      body={`Faqja nuk u ngarkua si duhet. Rifreskoni faqen ose provoni sërish pas pak.${CONTACT_DETAILS_CONFIRMED ? ` Për ndihmë, telefononi zyrën e shitjes: ${CONTACT.phoneDisplay}.` : ''}`}
+      body={`Faqja nuk u ngarkua si duhet. Rifreskoni faqen ose provoni sërish pas pak.${CONTACT_DETAILS ? ` Për ndihmë, telefononi zyrën e shitjes: ${CONTACT_DETAILS.phoneDisplay}.` : ''}`}
       actions={
         <>
           <button type="button" onClick={() => window.location.reload()} className={buttonClasses('dark')}>

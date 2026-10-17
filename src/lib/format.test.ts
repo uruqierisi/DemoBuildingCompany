@@ -18,7 +18,7 @@ const NBSP = ' ';
 
 describe('format', () => {
   it('formats areas with Albanian decimals and a non-breaking space before m²', () => {
-    expect(formatArea(58.87)).toBe(`58,87${NBSP}m²`);
+    expect(formatArea(56.85)).toBe(`56,85${NBSP}m²`);
     expect(formatArea(146.8)).toBe(`146,80${NBSP}m²`);
     expect(formatAreaRounded(146.8)).toBe(`147${NBSP}m²`);
   });
@@ -31,8 +31,8 @@ describe('format', () => {
   });
 
   it('formats area ranges and compact floors', () => {
-    expect(formatAreaRange(89.01, 139.44)).toBe(`89,01–139,44${NBSP}m²`);
-    expect(formatAreaRange(96.26, 96.26)).toBe(`96,26${NBSP}m²`);
+    expect(formatAreaRange(54.3, 142.6)).toBe(`54,30–142,60${NBSP}m²`);
+    expect(formatAreaRange(78.4, 78.4)).toBe(`78,40${NBSP}m²`);
     expect(formatFloorShort(0)).toBe('Përdhesë');
     expect(formatFloorShort(9)).toBe('9');
   });
@@ -43,24 +43,24 @@ describe('format', () => {
     expect(formatFloor(11)).toBe(`Kati${NBSP}11`);
   });
 
-  it("names room categories in Pozhegu's terminology, with the correct spelling of Garsonierë", () => {
+  it("names room categories in the market's terminology, with the correct spelling of Garsonierë", () => {
     expect(formatRoomCategory({ kind: 'studio' })).toBe('Garsonierë');
     expect(formatRoomCategory({ kind: 'bedrooms', count: 2 })).toBe(`2${NBSP}dhomëshe`);
     expect(formatRoomCategory({ kind: 'penthouse' })).toBe('Penthouse');
   });
 
   it('names unit types from category and area', () => {
-    expect(formatUnitTypeName({ kind: 'bedrooms', count: 2 }, 96.26)).toBe(`Tipi 96,26${NBSP}m²`);
-    expect(formatUnitTypeName({ kind: 'penthouse' }, 139.44)).toBe(`Penthouse 139,44${NBSP}m²`);
+    expect(formatUnitTypeName({ kind: 'bedrooms', count: 2 }, 78.4)).toBe(`Tipi 78,40${NBSP}m²`);
+    expect(formatUnitTypeName({ kind: 'penthouse' }, 142.6)).toBe(`Penthouse 142,60${NBSP}m²`);
   });
 
   it('treats generated type names as not distinct, and keeps real ones', () => {
     const bedrooms = { kind: 'bedrooms', count: 2 } as const;
-    expect(distinctUnitTypeName({ name: `Tipi 96,26${NBSP}m²`, category: bedrooms, areaM2: 96.26 })).toBeNull();
+    expect(distinctUnitTypeName({ name: `Tipi 78,40${NBSP}m²`, category: bedrooms, areaM2: 78.4 })).toBeNull();
     expect(
-      distinctUnitTypeName({ name: `Penthouse 139,44${NBSP}m²`, category: { kind: 'penthouse' }, areaM2: 139.44 }),
+      distinctUnitTypeName({ name: `Penthouse 142,60${NBSP}m²`, category: { kind: 'penthouse' }, areaM2: 142.6 }),
     ).toBeNull();
-    expect(distinctUnitTypeName({ name: 'Dupleks A', category: bedrooms, areaM2: 96.26 })).toBe('Dupleks A');
+    expect(distinctUnitTypeName({ name: 'Dupleks A', category: bedrooms, areaM2: 78.4 })).toBe('Dupleks A');
     expect(formatUnitTypeName({ kind: 'studio' }, 39.24)).toBe(`Garsonierë 39,24${NBSP}m²`);
   });
 
@@ -69,7 +69,7 @@ describe('format', () => {
   });
 
   it('upper-cases apartment codes', () => {
-    expect(formatApartmentCode('h2-301')).toBe('H2-301');
+    expect(formatApartmentCode('a1-301')).toBe('A1-301');
   });
 
   it('phrases for-sale counts, including none and one', () => {

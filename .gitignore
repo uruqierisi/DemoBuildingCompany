@@ -8,8 +8,8 @@ dist
 .DS_Store
 *.tsbuildinfo
 
-# Untouched source images (~95 MB). Re-download with: node scripts/optimize-renders.mjs --fetch
+# Untouched source images; the optimised variants and the manifest are committed instead.
 public/renders/**/original/
 
-# Local review artefacts (polygon overlays)
+# Local review artefacts (polygon overlays, screenshots)
 review/

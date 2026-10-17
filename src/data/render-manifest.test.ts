@@ -10,13 +10,13 @@ const variant = (width: number) => ({
 
 describe('createRenderLookup', () => {
   const render = createRenderLookup({
-    hero: { original: 'F11.jpg', width: 3840, height: 2160, variants: [variant(1600), variant(640)] },
+    hero: { original: 'aerial.jpg', width: 3840, height: 2160, variants: [variant(1600), variant(640)] },
     broken: { original: 'x.jpg', width: 100, variants: [] },
   });
 
   it('returns the real size and variants sorted by width', () => {
     const hero = render('hero');
-    expect(hero).toMatchObject({ original: 'F11.jpg', width: 3840, height: 2160 });
+    expect(hero).toMatchObject({ original: 'aerial.jpg', width: 3840, height: 2160 });
     expect(hero.variants.map((v) => v.width)).toEqual([640, 1600]);
   });
 

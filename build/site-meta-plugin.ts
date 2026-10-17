@@ -1,14 +1,11 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { loadEnv, type Plugin } from 'vite';
-import { buildRealEstateAgentJsonLd, serializeJsonLd } from '../src/lib/structured-data.ts';
-import { resolveSiteUrl } from './site-url-plugin.ts';
 
 /**
  * Demo mode (VITE_DEMO_MODE) keeps the site out of search engines with three layers:
  *   - <meta name="robots" content="noindex, nofollow"> in index.html
- *   - an X-Robots-Tag header on every path (Netlify: dist/_headers, written here; Vercel: a fixed
- *     rule in vercel.json, see assertNoVercelNoindex)
+ *   - an X-Robots-Tag header on every path: a fixed rule in vercel.json (see assertNoVercelNoindex)
  *   - a robots.txt that disallows everything
  * It is ON unless VITE_DEMO_MODE is exactly "false", so a missing variable can never expose the
  * demo to indexing. The real launch sets VITE_DEMO_MODE=false.
@@ -42,8 +39,8 @@ export function sendsNoindexHeader(vercelJson: string): boolean {
 }
 
 /**
- * vercel.json cannot read environment variables, so on Vercel the demo's X-Robots-Tag header is a
- * fixed rule there rather than generated like Netlify's _headers. A launch build on Vercel
+ * vercel.json cannot read environment variables, so the demo's X-Robots-Tag header is a fixed rule
+ * there rather than generated from the flag. A launch build on Vercel
  * (VITE_DEMO_MODE=false) stops while that rule is still present, instead of shipping the real site
  * with noindex.
  */
@@ -57,20 +54,15 @@ function assertNoVercelNoindex(root: string): void {
 }
 
 const DEMO_ROBOTS_TXT = 'User-agent: *\nDisallow: /\n';
-const DEMO_HEADERS = '/*\n  X-Robots-Tag: noindex, nofollow\n';
 
-/**
- * Build-time page metadata: the demo-mode robots rules above, and the sales office as schema.org
- * JSON-LD (from src/config/contact.ts) written straight into index.html, so crawlers read it
- * without running JavaScript.
- */
+/** Build-time page metadata: the demo-mode robots rules above, and the __DEMO_MODE__ constant. */
 export function siteMeta(): Plugin {
   let isDemo = true;
   let outDir = '';
   let isBuild = false;
 
   return {
-    name: 'pozhegu:site-meta',
+    name: 'elevateurbox-demo:site-meta',
     config(userConfig, { mode }) {
       const env = loadEnv(mode, userConfig.envDir || userConfig.root || process.cwd(), 'VITE_');
       isDemo = isDemoMode(env.VITE_DEMO_MODE);
@@ -92,19 +84,14 @@ export function siteMeta(): Plugin {
       }
     },
     transformIndexHtml() {
-      const jsonLd = serializeJsonLd(buildRealEstateAgentJsonLd(resolveSiteUrl()));
-      return [
-        ...(isDemo
-          ? [{ tag: 'meta', attrs: { name: 'robots', content: 'noindex, nofollow' }, injectTo: 'head' as const }]
-          : []),
-        { tag: 'script', attrs: { type: 'application/ld+json' }, children: jsonLd, injectTo: 'head' as const },
-      ];
+      return isDemo
+        ? [{ tag: 'meta', attrs: { name: 'robots', content: 'noindex, nofollow' }, injectTo: 'head' as const }]
+        : [];
     },
     closeBundle() {
       if (!isBuild || !isDemo) return;
-      // Written after Vite copies /public, so they replace public/robots.txt (which allows indexing).
+      // Written after Vite copies /public, so it replaces public/robots.txt (which allows indexing).
       writeFileSync(path.join(outDir, 'robots.txt'), DEMO_ROBOTS_TXT);
-      writeFileSync(path.join(outDir, '_headers'), DEMO_HEADERS);
     },
   };
 }

@@ -3,7 +3,7 @@ import { createInitialState, editorReducer, toExportJson, type EditorState } fro
 import { distance, toImagePoint, toSvgPath } from './polygon';
 
 const SIZE = { width: 2400, height: 1350 };
-const IMAGE = '/renders/garden-buildings/overview.webp';
+const IMAGE = '/renders/demo/overview.webp';
 
 function withPoints(...coords: Array<[number, number]>): EditorState {
   return coords.reduce(
@@ -73,7 +73,7 @@ describe('editorReducer', () => {
   });
 
   it('assigns a closed polygon, resets the draft, and replaces an earlier trace of the same target', () => {
-    const assign = { type: 'assign', kind: 'building', id: 'objekti-h2', image: IMAGE, imageSize: SIZE } as const;
+    const assign = { type: 'assign', kind: 'building', id: 'objekti-a1', image: IMAGE, imageSize: SIZE } as const;
     const traceAndAssign = (start: EditorState, coords: Array<[number, number]>) => {
       const drawn = coords.reduce(
         (state, [x, y]) => editorReducer(state, { type: 'addPoint', point: { x, y } }),
@@ -90,7 +90,7 @@ describe('editorReducer', () => {
     expect(first.points).toEqual([]);
     expect(first.isClosed).toBe(false);
     expect(first.traced).toEqual([
-      { kind: 'building', id: 'objekti-h2', image: IMAGE, imageSize: SIZE, svgPath: 'M1 1L2 2L3 1Z' },
+      { kind: 'building', id: 'objekti-a1', image: IMAGE, imageSize: SIZE, svgPath: 'M1 1L2 2L3 1Z' },
     ]);
 
     const retraced = traceAndAssign(first, [
@@ -107,7 +107,7 @@ describe('editorReducer', () => {
     const next = editorReducer(state, {
       type: 'assign',
       kind: 'apartment',
-      id: 'h2-101',
+      id: 'a1-101',
       image: IMAGE,
       imageSize: SIZE,
     });
@@ -127,12 +127,12 @@ describe('editorReducer', () => {
   it('restores a removed polygon (undo)', () => {
     const polygon = {
       kind: 'apartment',
-      id: 'h2-101',
+      id: 'a1-101',
       image: IMAGE,
       imageSize: SIZE,
       svgPath: 'M0 0L1 1L2 0Z',
     } as const;
-    const removed = editorReducer(createInitialState([polygon]), { type: 'remove', image: IMAGE, id: 'h2-101' });
+    const removed = editorReducer(createInitialState([polygon]), { type: 'remove', image: IMAGE, id: 'a1-101' });
     expect(editorReducer(removed, { type: 'restore', polygon }).traced).toEqual([polygon]);
   });
 });
@@ -143,13 +143,13 @@ describe('sold units', () => {
     const state = editorReducer(closed, {
       type: 'assign',
       kind: 'sold',
-      id: 'l9-s-0301',
-      buildingId: 'objekti-l9',
+      id: 'b1-s-0301',
+      buildingId: 'objekti-b1',
       floor: 3,
-      image: 'garden-buildings:objekti-l9',
+      image: 'rezidenca-arrita:objekti-b1',
       imageSize: { width: 2568, height: 2160 },
     });
-    expect(state.traced[0]).toMatchObject({ kind: 'sold', id: 'l9-s-0301', buildingId: 'objekti-l9', floor: 3 });
+    expect(state.traced[0]).toMatchObject({ kind: 'sold', id: 'b1-s-0301', buildingId: 'objekti-b1', floor: 3 });
   });
 
   it('does not attach building or floor to apartments', () => {
@@ -157,8 +157,8 @@ describe('sold units', () => {
     const state = editorReducer(closed, {
       type: 'assign',
       kind: 'apartment',
-      id: 'l9-301',
-      image: 'garden-buildings:objekti-l9',
+      id: 'b1-301',
+      image: 'rezidenca-arrita:objekti-b1',
       imageSize: { width: 2568, height: 2160 },
     });
     expect(state.traced[0]).not.toHaveProperty('floor');
@@ -169,8 +169,8 @@ describe('sold units', () => {
 describe('toExportJson', () => {
   it('wraps polygons with the project id', () => {
     const polygon = { kind: 'building', id: 'a', image: IMAGE, imageSize: SIZE, svgPath: 'M0 0L1 1L2 0Z' } as const;
-    expect(JSON.parse(toExportJson('garden-buildings', [polygon]))).toEqual({
-      project: 'garden-buildings',
+    expect(JSON.parse(toExportJson('rezidenca-arrita', [polygon]))).toEqual({
+      project: 'rezidenca-arrita',
       polygons: [polygon],
     });
   });

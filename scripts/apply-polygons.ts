@@ -1,7 +1,7 @@
 /**
  * Writes polygons exported from the hotspot editor ("Kopjo të gjitha si JSON") into a data file.
  *
- *   node scripts/apply-polygons.ts polygons.json [src/data/garden-buildings.ts]
+ *   node scripts/apply-polygons.ts polygons.json [src/data/rezidenca-arrita.ts]
  *
  * Node 22.18+ runs this TypeScript file directly (type stripping). Review the diff before committing.
  */
@@ -23,7 +23,7 @@ function isExportFile(value: unknown): value is ExportFile {
   );
 }
 
-const [jsonPath, dataPath = 'src/data/garden-buildings.ts'] = process.argv.slice(2);
+const [jsonPath, dataPath = 'src/data/rezidenca-arrita.ts'] = process.argv.slice(2);
 if (!jsonPath) {
   console.error('Usage: node scripts/apply-polygons.ts <polygons.json> [data-file.ts]');
   process.exit(1);

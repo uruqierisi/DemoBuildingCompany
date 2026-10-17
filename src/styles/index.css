@@ -18,11 +18,12 @@
   --color-line-inverse: rgb(255 255 255 / 0.18);
   --color-inverse-muted: #b9b3aa; /* 8.8:1 on ink */
 
-  /* Exact orange of the official logo. A fill/stroke colour on light grounds; text on it is always ink (7.7:1). */
-  --color-accent: #f49022;
-  --color-accent-hover: #e08214;
-  /* Accent-coloured text on light grounds (5.1:1 on paper). */
-  --color-accent-ink: #a0520a;
+  /* Brand cerulean of the Arrita mark: kept clear of the status hues (green, ochre, grey) and of danger red.
+     A fill/stroke colour on light grounds and a text colour on ink (6.5:1); text on it is always ink (6.5:1). */
+  --color-accent: #5b9fd6;
+  --color-accent-hover: #4a8fc6;
+  /* Accent-coloured text on light grounds (6.3:1 on paper). */
+  --color-accent-ink: #1d5c8c;
 
   /* Form errors (6.5:1 on white, 5.9:1 on paper). */
   --color-danger: #b3261e;
@@ -34,7 +35,7 @@
   --color-status-reserved-ink: #7a5a12;
   /* Light façade grey of the renders: legend swatches sit on it so they look like the shapes. */
   --color-facade: #d9d7d3;
-  /* Background of Pozhegu's floor plan drawings, so a plan sits in its frame without a seam. */
+  /* Neutral blue-grey behind floor plan drawings, so a plan sits in its frame without a seam. */
   --color-plan: #e0e5e8;
 
   --font-sans: 'DM Sans Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;

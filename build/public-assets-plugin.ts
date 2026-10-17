@@ -55,7 +55,7 @@ export function publicAssets(): Plugin {
   let outDir = '';
 
   return {
-    name: 'pozhegu:public-assets',
+    name: 'elevateurbox-demo:public-assets',
     configResolved(config) {
       publicDir = config.publicDir;
       outDir = path.resolve(config.root, config.build.outDir);
